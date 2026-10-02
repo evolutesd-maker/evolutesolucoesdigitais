@@ -105,8 +105,6 @@ button, input, select, textarea { font: inherit; }
 }
 .btn--primary:hover { transform: translateY(-2px); box-shadow: 0 14px 28px -10px rgba(29, 95, 168, .6); }
 .btn--primary:hover::before { opacity: 1; }
-.btn--light { color: var(--navy); background: #fff; box-shadow: 0 10px 24px -10px rgba(0, 0, 0, .4); }
-.btn--light:hover { transform: translateY(-2px); background: var(--cyan); }
 .btn--ghost { color: var(--ink); background: #fff; border-color: var(--line); }
 .btn--ghost:hover { border-color: var(--ink); transform: translateY(-2px); }
 .btn--ghost .icon { transition: transform .25s var(--ease); }
@@ -499,55 +497,33 @@ button, input, select, textarea { font: inherit; }
     radial-gradient(500px 400px at 100% 100%, rgba(23, 195, 230, .3), transparent 70%);
 }
 .contact__content h2 { color: #fff; font-size: clamp(30px, 3.6vw, 44px); margin-bottom: 18px; }
-.contact__content > p { font-size: 18px; margin-bottom: 36px; }
-.contact__calendar { margin-bottom: 32px; }
-.contact__alt { font-size: 14px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #9fb3cc; margin-bottom: 14px; }
-.contact__channels { display: grid; gap: 14px; }
-.contact__channels a {
-  display: flex; align-items: center; gap: 16px; padding: 16px 18px; border-radius: 14px;
-  background: rgba(255, 255, 255, .06); border: 1px solid rgba(255, 255, 255, .1); color: #fff;
-  transition: background .3s, transform .3s var(--ease);
-}
-.contact__channels a:hover { background: rgba(255, 255, 255, .12); transform: translateX(4px); }
-.contact__channels small { display: block; color: #9fb3cc; font-size: 13px; }
-.contact__channels strong { font-family: var(--font-head); font-weight: 600; word-break: break-all; }
-.contact__icon {
-  width: 46px; height: 46px; border-radius: 12px; display: grid; place-items: center; flex-shrink: 0;
-  background: var(--gradient);
-}
+.contact__content > p { font-size: 18px; }
 
-.contact__form {
-  background: #fff; border-radius: 20px; padding: 40px; box-shadow: var(--shadow-lg); color: var(--text);
+.channels { display: grid; gap: 14px; }
+.channel {
+  display: flex; align-items: center; gap: 18px; padding: 20px 22px; border-radius: 16px;
+  background: rgba(255, 255, 255, .06); border: 1px solid rgba(255, 255, 255, .12); color: #fff;
+  transition: background .3s, border-color .3s, transform .3s var(--ease);
 }
-.contact__form h3 { font-size: 22px; margin-bottom: 6px; }
-.contact__form-note { font-size: 14px; color: var(--muted); margin-bottom: 24px; }
-.field { margin-bottom: 16px; min-width: 0; }
-.field-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 14px; }
-fieldset.field { border: 0; padding: 0; margin-inline: 0; }
-.field legend { padding: 0; }
-.field legend, .field label { display: block; font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
-.field input, .field select, .field textarea {
-  width: 100%; padding: 13px 15px; border-radius: 10px; border: 1px solid var(--line);
-  background: var(--surface-2); color: var(--ink); font-size: 15px; resize: vertical;
-  transition: border-color .2s, box-shadow .2s, background .2s;
+.channel:hover { background: rgba(255, 255, 255, .12); border-color: rgba(255, 255, 255, .25); transform: translateX(6px); }
+.channel__icon {
+  width: 54px; height: 54px; border-radius: 14px; display: grid; place-items: center; flex-shrink: 0; color: #fff;
 }
-.field input:focus, .field select:focus, .field textarea:focus {
-  outline: none; border-color: var(--blue); background: #fff; box-shadow: 0 0 0 4px rgba(29, 95, 168, .12);
+.channel__icon .icon { width: 26px; height: 26px; }
+.channel--whatsapp .channel__icon { background: #25D366; }
+.channel--instagram .channel__icon { background: linear-gradient(45deg, #f9a03f, #e1306c 50%, #833ab4); }
+.channel--email .channel__icon { background: var(--gradient); }
+.channel__text { flex: 1; min-width: 0; }
+.channel__text strong { display: block; font-family: var(--font-head); font-size: 18px; font-weight: 600; }
+.channel__text small { display: block; color: #9fb3cc; font-size: 14px; overflow-wrap: anywhere; }
+.channel__go {
+  display: inline-flex; align-items: center; gap: 6px; flex-shrink: 0;
+  font-family: var(--font-head); font-weight: 600; font-size: 14px; color: var(--cyan);
 }
-.choices { display: flex; flex-wrap: wrap; gap: 8px; }
-.choice { position: relative; flex: 1 1 auto; margin: 0 !important; cursor: pointer; }
-.choice input { position: absolute; opacity: 0; pointer-events: none; }
-.choice span {
-  display: block; text-align: center; padding: 11px 14px; white-space: nowrap; border-radius: 10px;
-  font-size: 14px; font-weight: 500; color: var(--ink);
-  background: var(--surface-2); border: 1px solid var(--line); transition: all .2s;
-}
-.choice:hover span { border-color: var(--blue); }
-.choice input:checked + span { background: var(--navy); border-color: var(--navy); color: #fff; }
-.choice input:focus-visible + span { outline: 3px solid var(--cyan); outline-offset: 2px; }
-.field input[aria-invalid="true"] { border-color: #d64545; }
-.field__error { margin-top: 12px; font-size: 14px; color: #c23b3b; }
-.contact__form .btn { margin-top: 8px; }
+.channel__go .icon { width: 1em; height: 1em; transition: transform .25s var(--ease); }
+.channel:hover .channel__go .icon { transform: translateX(4px); }
+.channel--whatsapp { background: rgba(37, 211, 102, .12); border-color: rgba(37, 211, 102, .35); }
+.channel--whatsapp:hover { background: rgba(37, 211, 102, .2); border-color: rgba(37, 211, 102, .55); }
 
 /* Footer */
 .footer { background: var(--navy-900); color: #9fb3cc; padding: 80px 0 32px; }
@@ -643,8 +619,10 @@ fieldset.field { border: 0; padding: 0; margin-inline: 0; }
   .card, .journey__step { padding: 30px 26px; }
   .founder { flex-direction: column; padding: 32px 26px; gap: 20px; }
   .contact__box { padding: 44px 22px; border-radius: 22px; }
-  .contact__form { padding: 28px 22px; }
-  .field-row { grid-template-columns: minmax(0, 1fr); }
+  .channel { padding: 16px; gap: 14px; }
+  .channel__icon { width: 46px; height: 46px; }
+  .channel__go { font-size: 0; gap: 0; }
+  .channel__go .icon { width: 18px; height: 18px; }
   .project { padding: 16px 16px 28px; }
   .project__info { padding: 0 8px; }
   .project-next { padding: 30px 26px; }

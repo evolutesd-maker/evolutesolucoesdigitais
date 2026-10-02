@@ -17,12 +17,10 @@ Edite o objeto `CONTACT` no topo de `assets/js/main.js`:
 
 - `whatsapp`: número no formato internacional, só dígitos (ex.: `5511912345678`)
 - `whatsappLabel`: número como deve aparecer no site
-- `email`: e-mail de contato
-- `scheduleUrl` (opcional): link de uma agenda online (Calendly, Cal.com, página de agendamento do Google Agenda).
-  Se preenchido, os botões "Agendar reunião" abrem essa agenda. Vazio, levam ao formulário do site, que envia
-  o pedido de reunião (formato, dia e período) pelo WhatsApp.
+- `instagram`: o @ do perfil, sem o "@"
+- `email`: e-mail de contato (os links já abrem com o assunto "Agendar reunião com a Evolute")
 
-Todos os botões de WhatsApp, o formulário e os links de e-mail usam esses dados.
+Todos os botões de contato do site (WhatsApp, Instagram e e-mail) usam esses dados.
 
 ## Portfólio
 

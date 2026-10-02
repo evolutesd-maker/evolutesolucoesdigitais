@@ -3,18 +3,15 @@
    ========================================================= */
 
 /* ---------- CONFIGURAÇÃO DE CONTATO ----------
-   Edite aqui o número de WhatsApp (formato internacional, só dígitos:
-   55 + DDD + número) e o e-mail. Todos os botões do site usam estes dados.
-
-   scheduleUrl (opcional): link de uma agenda online, como Calendly, Cal.com
-   ou a página de agendamento do Google Agenda. Se preenchido, os botões
-   "Agendar reunião" abrem essa agenda. Se ficar vazio, levam ao formulário
-   do site, que envia o pedido de reunião pelo WhatsApp. */
+   Edite aqui os dados de contato. Todos os botões do site usam estes valores.
+   - whatsapp: formato internacional, só dígitos (55 + DDD + número)
+   - instagram: o @ do perfil, sem o "@" */
 const CONTACT = {
   whatsapp: "5500000000000",
   whatsappLabel: "(00) 00000-0000",
+  instagram: "seuperfil",
   email: "contato@seudominio.com.br",
-  scheduleUrl: "",
+  emailSubject: "Agendar reunião com a Evolute",
   defaultMessage: "Olá! Conheci a Evolute pelo site e gostaria de conversar sobre um projeto."
 };
 
@@ -25,22 +22,20 @@ const waLink = (text) =>
 
 /* Links de contato */
 document.querySelectorAll("[data-whatsapp]").forEach((el) => {
-  el.href = waLink();
+  el.href = waLink(el.dataset.waText);
+  el.target = "_blank";
+  el.rel = "noopener";
+});
+document.querySelectorAll("[data-instagram]").forEach((el) => {
+  el.href = `https://instagram.com/${CONTACT.instagram}`;
   el.target = "_blank";
   el.rel = "noopener";
 });
 document.querySelectorAll("[data-email]").forEach((el) => {
-  el.href = `mailto:${CONTACT.email}`;
+  el.href = `mailto:${CONTACT.email}?subject=${encodeURIComponent(CONTACT.emailSubject)}`;
 });
-if (CONTACT.scheduleUrl) {
-  document.querySelectorAll("[data-schedule], [data-schedule-external]").forEach((el) => {
-    el.href = CONTACT.scheduleUrl;
-    el.target = "_blank";
-    el.rel = "noopener";
-    el.hidden = false;
-  });
-}
 document.querySelectorAll("[data-phone-label]").forEach((el) => (el.textContent = CONTACT.whatsappLabel));
+document.querySelectorAll("[data-instagram-label]").forEach((el) => (el.textContent = `@${CONTACT.instagram}`));
 document.querySelectorAll("[data-email-label]").forEach((el) => (el.textContent = CONTACT.email));
 
 /* Portfólio: sem print real, mantém a ilustração do projeto */
@@ -121,53 +116,3 @@ document.querySelectorAll(".faq__item").forEach((item) => {
     document.querySelectorAll(".faq__item[open]").forEach((o) => o !== item && (o.open = false));
   });
 });
-
-/* Formulário de agendamento -> WhatsApp */
-const form = document.getElementById("schedule-form");
-if (form) {
-  const error = form.querySelector(".field__error");
-  const dateInput = form.elements.data;
-  const pad = (n) => String(n).padStart(2, "0");
-  const now = new Date();
-  dateInput.min = `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}`;
-
-  const fail = (input, message) => {
-    input.setAttribute("aria-invalid", "true");
-    error.textContent = message;
-    error.hidden = false;
-    input.focus();
-  };
-
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const data = new FormData(form);
-    const nome = (data.get("nome") || "").trim();
-    const dia = data.get("data");
-    form.querySelectorAll("[aria-invalid]").forEach((el) => el.removeAttribute("aria-invalid"));
-    error.hidden = true;
-
-    if (!nome) return fail(form.elements.nome, "Informe seu nome para continuarmos.");
-    if (!dia) return fail(dateInput, "Escolha o melhor dia para a reunião.");
-    if (dia < dateInput.min) return fail(dateInput, "Escolha uma data a partir de hoje.");
-
-    const [ano, mes, d] = dia.split("-").map(Number);
-    const dataFmt = new Date(ano, mes - 1, d).toLocaleDateString("pt-BR", {
-      weekday: "long", day: "2-digit", month: "2-digit", year: "numeric"
-    });
-    const empresa = (data.get("empresa") || "").trim();
-    const mensagem = (data.get("mensagem") || "").trim();
-    const linhas = [
-      `Olá! Meu nome é ${nome}${empresa ? `, da ${empresa}` : ""}.`,
-      "Gostaria de agendar uma reunião com a Evolute.",
-      "",
-      `Formato: ${data.get("formato")}`,
-      `Preferência: ${dataFmt} (${String(data.get("periodo")).toLowerCase()})`
-    ];
-    if (mensagem) linhas.push(`Assunto: ${mensagem}`);
-
-    const url = waLink(linhas.join("\n"));
-    const win = window.open(url, "_blank");
-    if (win) win.opener = null;
-    else window.location.href = url;
-  });
-}

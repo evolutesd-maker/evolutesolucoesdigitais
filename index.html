@@ -56,7 +56,7 @@
         <a href="#processo">Processo</a>
         <a href="#fundadores">Quem somos</a>
         <a href="#faq">Dúvidas</a>
-        <a href="#agendar" class="btn btn--primary btn--sm nav__cta" data-schedule>
+        <a href="#contato" class="btn btn--primary btn--sm nav__cta">
           <svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg>
           Agendar reunião
         </a>
@@ -91,7 +91,7 @@
             onde o seu atendimento acontece.
           </p>
           <div class="hero__actions reveal">
-            <a href="#agendar" class="btn btn--primary btn--lg" data-schedule>
+            <a href="#contato" class="btn btn--primary btn--lg">
               <svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg>
               Agende uma reunião
             </a>
@@ -217,7 +217,7 @@
             </div>
           </article>
 
-          <a class="project-next reveal" href="#agendar" data-schedule>
+          <a class="project-next reveal" href="#contato">
             <span class="project-next__icon"><svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></span>
             <h3>O próximo projeto pode ser o seu.</h3>
             <p>Marque uma conversa sem compromisso e conte para a gente o que a sua empresa precisa.</p>
@@ -374,7 +374,7 @@
             Trabalhamos com poucos projetos por vez, para que cada um receba atenção total.
             O resultado são sites que transmitem a seriedade da sua empresa desde o primeiro segundo.
           </p>
-          <a href="#agendar" class="btn btn--primary" data-schedule>
+          <a href="#contato" class="btn btn--primary">
             Agendar uma conversa
             <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
           </a>
@@ -459,7 +459,7 @@
         <div class="section__head reveal">
           <span class="eyebrow">Dúvidas frequentes</span>
           <h2>Perguntas que costumamos ouvir.</h2>
-          <p>Não encontrou o que procurava? <a href="#agendar" data-schedule>Agende uma reunião</a> ou chame no WhatsApp. Respondemos pessoalmente.</p>
+          <p>Não encontrou o que procurava? <a href="#contato">Fale com a gente</a> pelo WhatsApp, Instagram ou e-mail. Respondemos pessoalmente.</p>
         </div>
 
         <div class="faq__list">
@@ -487,8 +487,8 @@
       </div>
     </section>
 
-    <!-- ============ AGENDAR ============ -->
-    <section class="section contact" id="agendar">
+    <!-- ============ CONTATO ============ -->
+    <section class="section contact" id="contato">
       <div class="container">
         <div class="contact__box">
           <div class="contact__bg" aria-hidden="true"></div>
@@ -498,81 +498,42 @@
             <h2>Agende uma reunião com a Evolute.</h2>
             <p>
               Uma conversa de cerca de 30 minutos, sem compromisso, direto com os fundadores.
-              Entendemos o seu negócio e mostramos como um site pode trazer mais clientes até você.
+              Escolha o canal que preferir: combinamos o melhor dia e horário com você.
             </p>
-
-            <a href="#" class="btn btn--light btn--lg contact__calendar" data-schedule-external hidden>
-              <svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg>
-              Escolher horário na agenda
-            </a>
-
-            <p class="contact__alt">Ou fale direto com a gente</p>
-            <ul class="contact__channels">
-              <li>
-                <a href="#" data-whatsapp target="_blank" rel="noopener">
-                  <span class="contact__icon"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg></span>
-                  <span><small>WhatsApp</small><strong data-phone-label>Fale agora</strong></span>
-                </a>
-              </li>
-              <li>
-                <a href="#" data-email>
-                  <span class="contact__icon"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg></span>
-                  <span><small>E-mail</small><strong data-email-label>Envie uma mensagem</strong></span>
-                </a>
-              </li>
-            </ul>
           </div>
 
-          <form class="contact__form reveal" id="schedule-form" novalidate>
-            <h3>Marque sua reunião</h3>
-            <p class="contact__form-note">Escolha sua preferência. Ao enviar, abrimos o WhatsApp com o pedido pronto e confirmamos o horário com você.</p>
-
-            <div class="field-row">
-              <div class="field">
-                <label for="f-nome">Seu nome</label>
-                <input id="f-nome" name="nome" type="text" autocomplete="name" required placeholder="Como podemos te chamar?">
-              </div>
-              <div class="field">
-                <label for="f-empresa">Empresa</label>
-                <input id="f-empresa" name="empresa" type="text" autocomplete="organization" placeholder="Opcional">
-              </div>
-            </div>
-
-            <fieldset class="field">
-              <legend>Formato da reunião</legend>
-              <div class="choices">
-                <label class="choice"><input type="radio" name="formato" value="Videochamada" checked><span>Videochamada</span></label>
-                <label class="choice"><input type="radio" name="formato" value="Ligação"><span>Ligação</span></label>
-                <label class="choice"><input type="radio" name="formato" value="Presencial"><span>Presencial</span></label>
-              </div>
-            </fieldset>
-
-            <div class="field-row">
-              <div class="field">
-                <label for="f-data">Melhor dia</label>
-                <input id="f-data" name="data" type="date" required>
-              </div>
-              <div class="field">
-                <label for="f-periodo">Período</label>
-                <select id="f-periodo" name="periodo">
-                  <option>Manhã</option>
-                  <option>Tarde</option>
-                  <option>Início da noite</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="field">
-              <label for="f-msg">Sobre o que você quer conversar?</label>
-              <textarea id="f-msg" name="mensagem" rows="2" placeholder="Ex.: quero um site para a minha empresa (opcional)"></textarea>
-            </div>
-
-            <button type="submit" class="btn btn--primary btn--lg btn--block">
-              <svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg>
-              Solicitar agendamento
-            </button>
-            <p class="field__error" role="alert" hidden></p>
-          </form>
+          <ul class="channels reveal">
+            <li>
+              <a class="channel channel--whatsapp" href="#" data-whatsapp data-wa-text="Olá! Vim pelo site da Evolute e gostaria de agendar uma reunião." target="_blank" rel="noopener">
+                <span class="channel__icon"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg></span>
+                <span class="channel__text">
+                  <strong>WhatsApp</strong>
+                  <small data-phone-label>Resposta mais rápida</small>
+                </span>
+                <span class="channel__go">Agendar <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+              </a>
+            </li>
+            <li>
+              <a class="channel channel--instagram" href="#" data-instagram target="_blank" rel="noopener">
+                <span class="channel__icon"><svg class="icon" aria-hidden="true"><use href="#i-instagram"/></svg></span>
+                <span class="channel__text">
+                  <strong>Instagram</strong>
+                  <small data-instagram-label>Mande uma mensagem direta</small>
+                </span>
+                <span class="channel__go">Abrir <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+              </a>
+            </li>
+            <li>
+              <a class="channel channel--email" href="#" data-email>
+                <span class="channel__icon"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg></span>
+                <span class="channel__text">
+                  <strong>E-mail</strong>
+                  <small data-email-label>Envie uma mensagem</small>
+                </span>
+                <span class="channel__go">Escrever <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
     </section>
@@ -595,8 +556,8 @@
       </nav>
       <div class="footer__nav">
         <h4>Contato</h4>
-        <a href="#agendar" data-schedule>Agendar reunião</a>
         <a href="#" data-whatsapp target="_blank" rel="noopener">WhatsApp</a>
+        <a href="#" data-instagram target="_blank" rel="noopener">Instagram</a>
         <a href="#" data-email>E-mail</a>
       </div>
     </div>
@@ -633,6 +594,7 @@
     <symbol id="i-calendar" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/><path d="M8 14h.01M12 14h.01M16 14h.01M8 17h.01M12 17h.01"/></g></symbol>
     <symbol id="i-external" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M14 4h6v6M20 4l-9 9M18 14v4.5A1.5 1.5 0 0 1 16.5 20h-11A1.5 1.5 0 0 1 4 18.5v-11A1.5 1.5 0 0 1 5.5 6H10"/></symbol>
     <symbol id="i-plus" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></g></symbol>
     <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6.5L12 13l8.5-6.5"/></g></symbol>
   </svg>
 
