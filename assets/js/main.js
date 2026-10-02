@@ -36,7 +36,11 @@ document.querySelectorAll("[data-email]").forEach((el) => {
 });
 document.querySelectorAll("[data-phone-label]").forEach((el) => (el.textContent = CONTACT.whatsappLabel));
 document.querySelectorAll("[data-instagram-label]").forEach((el) => (el.textContent = `@${CONTACT.instagram}`));
-document.querySelectorAll("[data-email-label]").forEach((el) => (el.textContent = CONTACT.email));
+// Quebra de linha só depois do "@" em telas estreitas
+document.querySelectorAll("[data-email-label]").forEach((el) => {
+  const [user, domain] = CONTACT.email.split("@");
+  el.replaceChildren(`${user}@`, document.createElement("wbr"), domain);
+});
 
 /* Portfólio: sem print real, mantém a ilustração do projeto */
 document.querySelectorAll(".project__screen img").forEach((img) => {

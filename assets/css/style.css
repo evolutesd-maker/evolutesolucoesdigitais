@@ -46,7 +46,7 @@
 
   /* Elementos "papel" (mockups brancos) */
   --paper: #ffffff;
-  --paper-2: #f5f8fa;
+  --paper-2: #f5f8fc;
   --paper-line: #e3e9f1;
   --paper-ink: #0d233f;
   --paper-muted: #6b7c93;
@@ -234,7 +234,7 @@ button, input, select, textarea { font: inherit; }
   -webkit-mask-image: radial-gradient(ellipse 70% 60% at 60% 30%, #000 30%, transparent 75%);
 }
 .hero__glow { position: absolute; border-radius: 50%; filter: blur(90px); animation: drift 18s ease-in-out infinite alternate; }
-.hero__glow--1 { width: 560px; height: 560px; right: -140px; top: 20px; background: rgba(23, 195, 230, .22); }
+.hero__glow--1 { width: 560px; height: 560px; right: -140px; top: 20px; background: rgba(29, 95, 168, .35); }
 .hero__glow--2 { width: 460px; height: 460px; left: -180px; bottom: -160px; background: rgba(29, 95, 168, .35); animation-delay: -9s; }
 
 @keyframes drift {
@@ -415,7 +415,7 @@ button, input, select, textarea { font: inherit; }
 }
 .project-next::before {
   content: ""; position: absolute; inset: 0; z-index: -1;
-  background: radial-gradient(380px 300px at 100% 0%, rgba(23, 195, 230, .32), transparent 70%);
+  background: radial-gradient(380px 300px at 100% 0%, rgba(23, 195, 230, .15), transparent 70%);
 }
 .project-next:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
 .project-next__icon {
@@ -450,7 +450,7 @@ button, input, select, textarea { font: inherit; }
 }
 .journey__num {
   position: absolute; top: 26px; right: 28px;
-  font-family: var(--font-head); font-weight: 700; font-size: 14px; color: var(--line-strong);
+  font-family: var(--font-head); font-weight: 700; font-size: 14px; color: var(--muted);
 }
 .journey__icon {
   width: 52px; height: 52px; border-radius: 14px; display: grid; place-items: center;
@@ -515,7 +515,7 @@ button, input, select, textarea { font: inherit; }
   box-shadow: 0 10px 20px -10px rgba(9, 49, 100, .8);
   transition: background .3s, transform .3s var(--ease);
 }
-.timeline__item:hover .timeline__num { background: var(--gradient); transform: translateY(-2px); }
+.timeline__item:hover .timeline__num { background: var(--gradient-button); transform: translateY(-2px); }
 .timeline__item h3 { font-size: 21px; margin-bottom: 10px; }
 .timeline__item p { font-size: 15.5px; }
 
@@ -553,7 +553,7 @@ button, input, select, textarea { font: inherit; }
   background: linear-gradient(135deg, var(--blue), #2a7fd0);
   box-shadow: 0 14px 28px -10px rgba(0, 0, 0, .5);
 }
-.founder__avatar--alt { background: linear-gradient(135deg, #1690cb, var(--cyan)); }
+.founder__avatar--alt { background: linear-gradient(135deg, var(--blue), #1690cb); }
 .founder h3 { font-size: 22px; margin-bottom: 6px; }
 .founder__role {
   display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
@@ -598,7 +598,7 @@ button, input, select, textarea { font: inherit; }
   position: absolute; inset: 0; z-index: -1;
   background:
     radial-gradient(600px 400px at 0% 0%, rgba(29, 95, 168, .35), transparent 70%),
-    radial-gradient(500px 400px at 100% 100%, rgba(23, 195, 230, .25), transparent 70%);
+    radial-gradient(500px 400px at 100% 100%, rgba(23, 195, 230, .12), transparent 70%);
 }
 .contact__content h2 { font-size: clamp(30px, 3.6vw, 44px); margin-bottom: 18px; text-wrap: balance; }
 .contact__content > p { font-size: 18px; }
@@ -619,7 +619,7 @@ button, input, select, textarea { font: inherit; }
 .channel--email .channel__icon { background: var(--gradient); }
 .channel__text { flex: 1; min-width: 0; }
 .channel__text strong { display: block; font-family: var(--font-head); font-size: 18px; font-weight: 600; }
-.channel__text small { display: block; color: var(--muted); font-size: 14px; overflow-wrap: anywhere; }
+.channel__text small { display: block; color: var(--text); font-size: 14px; overflow-wrap: anywhere; }
 .channel__go {
   display: inline-flex; align-items: center; gap: 6px; flex-shrink: 0;
   font-family: var(--font-head); font-weight: 600; font-size: 14px; color: var(--accent);
@@ -631,7 +631,8 @@ button, input, select, textarea { font: inherit; }
 
 /* Footer */
 .footer { background: var(--dark-deepest); color: var(--muted); padding: 80px 0 32px; }
-.footer__inner { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; padding-bottom: 48px; border-bottom: 1px solid var(--line); }
+.footer__inner { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; padding-bottom: 48px; position: relative; }
+.footer__inner::after { content: ""; position: absolute; left: 24px; right: 24px; bottom: 0; border-bottom: 1px solid var(--line); }
 .footer__brand img { height: 64px; width: auto; margin-bottom: 20px; }
 .footer__brand p { max-width: 360px; font-size: 15px; }
 .footer__nav { display: flex; flex-direction: column; gap: 10px; }
@@ -753,6 +754,10 @@ button, input, select, textarea { font: inherit; }
   .channel__icon { width: 46px; height: 46px; }
   .channel__go { font-size: 0; gap: 0; }
   .channel__go .icon { width: 18px; height: 18px; }
+  .channel__text small { font-size: 13px; overflow-wrap: break-word; }
+  .footer__inner::after { left: 20px; right: 20px; }
+  .eyebrow { font-size: 12px; letter-spacing: .1em; align-items: flex-start; }
+  .eyebrow::before { margin-top: .75em; }
   .project { padding: 16px 16px 28px; }
   .project__info { padding: 0 8px; }
   .project-next { padding: 30px 26px; }
