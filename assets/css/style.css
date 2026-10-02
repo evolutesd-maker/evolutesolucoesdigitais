@@ -277,7 +277,7 @@ button, input, select, textarea { font: inherit; }
 .project__media { display: block; border-radius: 14px; }
 .browser--flat { transform: none; box-shadow: var(--shadow); transition: transform .5s var(--ease), box-shadow .5s var(--ease); }
 .project__media:hover .browser--flat { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
-.project__screen { position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: #fff; }
+.project__screen { position: relative; aspect-ratio: 1471 / 843; overflow: hidden; background: #fff; }
 .project__screen img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top; z-index: 1; }
 .project__mock { position: absolute; inset: 0; padding: 16px 18px; display: flex; flex-direction: column; gap: 14px; }
 .project__mock-nav { display: flex; align-items: center; gap: 8px; }

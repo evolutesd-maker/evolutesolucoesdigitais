@@ -26,9 +26,9 @@ Todos os botões de WhatsApp, o formulário e os links de e-mail usam esses dado
 
 ## Portfólio
 
-Para trocar a ilustração do projeto pelo print real do site, salve a imagem em
-`assets/img/portfolio/protestoijui.jpg` (de preferência 1440x900, mostrando o topo da página).
-Sem o arquivo, o site mostra uma ilustração no lugar.
+O print do projeto fica em `assets/img/portfolio/protestoijui.jpg`. Para atualizar, substitua o arquivo
+por outro print do topo da página (proporção aproximada de 1471x843). Sem o arquivo, o site mostra uma
+ilustração no lugar.
 
 ## Rodar localmente
 
