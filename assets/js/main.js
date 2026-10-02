@@ -49,16 +49,89 @@ document.querySelectorAll(".project__screen img").forEach((img) => {
 const year = document.getElementById("year");
 if (year) year.textContent = new Date().getFullYear();
 
-/* Header ao rolar + botão flutuante */
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+/* Header ao rolar, barra de progresso e botões flutuantes */
+const root = document.documentElement;
 const header = document.querySelector(".header");
 const waFloat = document.querySelector(".wa-float");
+const toTop = document.querySelector(".to-top");
+const ringBar = document.querySelector(".to-top__bar");
+let ticking = false;
 const onScroll = () => {
   const y = window.scrollY;
+  const max = root.scrollHeight - window.innerHeight;
+  const progress = max > 0 ? Math.min(y / max, 1) : 0;
   header.classList.toggle("is-scrolled", y > 10);
   waFloat.classList.toggle("is-visible", y > 600);
+  toTop.classList.toggle("is-visible", y > 600);
+  root.style.setProperty("--progress", progress.toFixed(4));
+  ringBar.style.strokeDashoffset = String(100 - progress * 100);
+  ticking = false;
 };
-window.addEventListener("scroll", onScroll, { passive: true });
+window.addEventListener("scroll", () => {
+  if (!ticking) { ticking = true; requestAnimationFrame(onScroll); }
+}, { passive: true });
+window.addEventListener("resize", onScroll, { passive: true });
 onScroll();
+
+/* Rolagem suave para âncoras, descontando a altura do header fixo */
+const scrollToY = (top) => window.scrollTo({ top, behavior: reduceMotion ? "auto" : "smooth" });
+toTop.addEventListener("click", () => scrollToY(0));
+document.addEventListener("click", (e) => {
+  const link = e.target.closest('a[href^="#"]');
+  if (!link) return;
+  const hash = link.getAttribute("href");
+  if (hash === "#") return;
+  if (hash === "#topo") {
+    e.preventDefault();
+    scrollToY(0);
+    return;
+  }
+  const target = document.getElementById(hash.slice(1));
+  if (!target) return;
+  e.preventDefault();
+  scrollToY(target.getBoundingClientRect().top + window.scrollY - header.offsetHeight + 1);
+  if (!target.hasAttribute("tabindex")) target.setAttribute("tabindex", "-1");
+  target.focus({ preventScroll: true });
+});
+
+/* Inclinação 3D que acompanha o mouse (mockups do hero e do portfólio) */
+const tilt = (area, { rx = 0, ry = 0, range = 8, parallax = false }) => {
+  if (!area) return;
+  area.addEventListener("pointermove", (e) => {
+    const r = area.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width - 0.5;
+    const y = (e.clientY - r.top) / r.height - 0.5;
+    area.classList.add("is-tilting");
+    area.style.setProperty("--ry", `${ry + x * range}deg`);
+    area.style.setProperty("--rx", `${rx - y * range * 0.7}deg`);
+    if (parallax) {
+      area.style.setProperty("--px", x.toFixed(3));
+      area.style.setProperty("--py", y.toFixed(3));
+    }
+  });
+  area.addEventListener("pointerleave", () => {
+    area.classList.remove("is-tilting");
+    ["--ry", "--rx", "--px", "--py"].forEach((v) => area.style.removeProperty(v));
+  });
+};
+
+/* Efeitos de mouse: só em telas com mouse e sem preferência por menos movimento */
+if (finePointer && !reduceMotion) {
+  tilt(document.querySelector(".hero__visual"), { rx: 3, ry: -8, range: 10, parallax: true });
+  tilt(document.querySelector(".project__media"), { range: 7 });
+
+  // Brilho que segue o cursor nos cartões
+  document.querySelectorAll(".card, .pillar, .founder").forEach((el) => {
+    el.addEventListener("pointermove", (e) => {
+      const r = el.getBoundingClientRect();
+      el.style.setProperty("--mx", `${e.clientX - r.left}px`);
+      el.style.setProperty("--my", `${e.clientY - r.top}px`);
+    });
+  });
+}
 
 /* Menu mobile */
 const toggle = document.querySelector(".menu-toggle");
