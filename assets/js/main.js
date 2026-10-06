@@ -95,12 +95,38 @@ document.addEventListener("click", (e) => {
   target.focus({ preventScroll: true });
 });
 
+/* Relógio dos motion graphics: a animação só começa quando o elemento
+   aparece pela primeira vez na tela (bem visível). A partir daí o loop segue
+   sozinho, mesmo se a pessoa rolar; só pausa com a aba em segundo plano. */
+function motionClock(el, threshold) {
+  const seen = new Promise((resolve) => {
+    const io = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) return;
+      io.disconnect();
+      resolve();
+    }, { threshold });
+    io.observe(el);
+  });
+  const tabActive = () => document.hidden
+    ? new Promise((resolve) => {
+        const onChange = () => {
+          if (document.hidden) return;
+          document.removeEventListener("visibilitychange", onChange);
+          resolve();
+        };
+        document.addEventListener("visibilitychange", onChange);
+      })
+    : Promise.resolve();
+  const wait = async (ms) => { await tabActive(); await new Promise((r) => setTimeout(r, ms)); };
+  return { seen, tabActive, wait };
+}
+
 /* ---------- Movimento-assinatura: motion graphic da busca ----------
    Um loop que conta, em poucos segundos, o que a Evolute vende:
    alguém pesquisa → a "Sua empresa" sobe para o primeiro lugar →
    recebe o clique → vira mensagem no WhatsApp. Depois, outra profissão.
-   Só roda com o cartão visível e a aba ativa; com movimento reduzido,
-   mostra o estado final parado. */
+   Começa quando o cartão aparece; depois segue em loop. Com movimento
+   reduzido, mostra o estado final parado. */
 const SEARCHES = [
   { q: "arquitetos perto de mim", area: "Arquitetura" },
   { q: "advogados perto de mim", area: "Advocacia" },
@@ -120,18 +146,15 @@ function initSearchMotion() {
   const toast = card.querySelector(".google__aviso");
   const EASE = "cubic-bezier(.22, 1, .36, 1)";
 
-  let visible = false;
-  let wake = null;
-  new IntersectionObserver(([entry]) => {
-    visible = entry.isIntersecting;
-    if (visible && wake) { wake(); wake = null; }
-  }, { threshold: 0.35 }).observe(card);
-  document.addEventListener("visibilitychange", () => {
-    if (!document.hidden && visible && wake) { wake(); wake = null; }
-  });
-  // Espera o cartão estar visível (e a aba ativa) antes de cada passo
-  const gate = () => (visible && !document.hidden) ? Promise.resolve() : new Promise((r) => { wake = r; });
-  const wait = async (ms) => { await gate(); await new Promise((r) => setTimeout(r, ms)); };
+  const clock = motionClock(card, 0.6);
+  const { wait } = clock;
+  const gate = clock.tabActive;
+
+  // Estado inicial: campo vazio e sem resultados até a pessoa chegar aqui
+  queryEl.textContent = "";
+  card.classList.add("is-vazio");
+  ours.classList.remove("is-topo");
+  list.appendChild(ours);
 
   // Reordena a lista animando a diferença de posição (técnica FLIP)
   const reorder = (mutate, duration) => {
@@ -231,13 +254,13 @@ function initSearchMotion() {
       i = (i + 1) % SEARCHES.length;
     }
   };
-  gate().then(start);
+  clock.seen.then(start);
 }
 initSearchMotion();
 
 /* ---------- Motion graphic da conversa no WhatsApp (loop) ----------
    Cliente digitando → chega "Olá, vim pelo site..." → a empresa digita →
-   chega a resposta → recomeça. Mesmas regras do cartão da busca. */
+   chega a resposta → recomeça. Começa quando o celular aparece; depois segue em loop. */
 function initChatMotion() {
   const chat = document.getElementById("chat");
   if (!chat || reduceMotion) return;
@@ -246,17 +269,8 @@ function initChatMotion() {
   const dots = document.getElementById("chat-digitando");
   const status = document.getElementById("chat-status");
 
-  let visible = false;
-  let wake = null;
-  new IntersectionObserver(([entry]) => {
-    visible = entry.isIntersecting;
-    if (visible && wake) { wake(); wake = null; }
-  }, { threshold: 0.4 }).observe(chat);
-  document.addEventListener("visibilitychange", () => {
-    if (!document.hidden && visible && wake) { wake(); wake = null; }
-  });
-  const gate = () => (visible && !document.hidden) ? Promise.resolve() : new Promise((r) => { wake = r; });
-  const wait = async (ms) => { await gate(); await new Promise((r) => setTimeout(r, ms)); };
+  const clock = motionClock(chat, 0.6);
+  const { wait } = clock;
 
   const show = (el) => { el.hidden = false; void el.offsetWidth; el.classList.add("is-visivel"); };
   const hide = (el) => { el.classList.remove("is-visivel"); el.hidden = true; };
@@ -286,7 +300,9 @@ function initChatMotion() {
     await wait(400);
   }
 
-  gate().then(async () => { for (;;) await cycle(); });
+  // Estado inicial: conversa vazia até a pessoa chegar aqui
+  hide(msg); hide(reply);
+  clock.seen.then(async () => { for (;;) await cycle(); });
 }
 initChatMotion();
 
