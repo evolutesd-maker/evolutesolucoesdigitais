@@ -97,28 +97,49 @@ document.addEventListener("click", (e) => {
 
 /* Relógio dos motion graphics: a animação só começa quando o elemento
    aparece pela primeira vez na tela (bem visível). A partir daí o loop segue
-   sozinho, mesmo se a pessoa rolar; só pausa com a aba em segundo plano. */
-function motionClock(el, threshold) {
+   sozinho, mesmo se a pessoa rolar; pausa com a aba em segundo plano ou
+   quando a pessoa usa o botão "Pausar animação". */
+function motionClock(el, threshold, name) {
+  const button = document.querySelector(`[data-pausar="${name}"]`);
+  const stage = button ? button.previousElementSibling : el;
+  let paused = false;
+  let waiting = [];
+  const resume = () => {
+    if (paused || document.hidden) return;
+    waiting.forEach((r) => r());
+    waiting = [];
+  };
+  document.addEventListener("visibilitychange", resume);
+
   const seen = new Promise((resolve) => {
     const io = new IntersectionObserver(([entry]) => {
       if (!entry.isIntersecting) return;
       io.disconnect();
+      if (button) button.hidden = false;
       resolve();
     }, { threshold });
     io.observe(el);
   });
-  const tabActive = () => document.hidden
-    ? new Promise((resolve) => {
-        const onChange = () => {
-          if (document.hidden) return;
-          document.removeEventListener("visibilitychange", onChange);
-          resolve();
-        };
-        document.addEventListener("visibilitychange", onChange);
-      })
+
+  if (button) {
+    const label = button.querySelector("span");
+    const icon = button.querySelector("use");
+    button.addEventListener("click", () => {
+      paused = !paused;
+      button.setAttribute("aria-pressed", String(paused));
+      label.textContent = paused ? "Continuar animação" : "Pausar animação";
+      icon.setAttribute("href", paused ? "#i-play" : "#i-pausa");
+      stage.classList.toggle("is-pausado", paused);
+      stage.getAnimations({ subtree: true }).forEach((an) => (paused ? an.pause() : an.play()));
+      resume();
+    });
+  }
+
+  const running = () => (paused || document.hidden)
+    ? new Promise((r) => waiting.push(r))
     : Promise.resolve();
-  const wait = async (ms) => { await tabActive(); await new Promise((r) => setTimeout(r, ms)); };
-  return { seen, tabActive, wait };
+  const wait = async (ms) => { await running(); await new Promise((r) => setTimeout(r, ms)); await running(); };
+  return { seen, tabActive: running, wait };
 }
 
 /* ---------- Movimento-assinatura: motion graphic da busca ----------
@@ -146,7 +167,7 @@ function initSearchMotion() {
   const toast = card.querySelector(".google__aviso");
   const EASE = "cubic-bezier(.22, 1, .36, 1)";
 
-  const clock = motionClock(card, 0.6);
+  const clock = motionClock(card, 0.6, "google");
   const { wait } = clock;
   const gate = clock.tabActive;
 
@@ -269,7 +290,7 @@ function initChatMotion() {
   const dots = document.getElementById("chat-digitando");
   const status = document.getElementById("chat-status");
 
-  const clock = motionClock(chat, 0.6);
+  const clock = motionClock(chat, 0.6, "chat");
   const { wait } = clock;
 
   const show = (el) => { el.hidden = false; void el.offsetWidth; el.classList.add("is-visivel"); };

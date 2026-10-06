@@ -23,6 +23,9 @@ Edite o objeto `CONTACT` no topo de `assets/js/main.js`:
 
 Todos os botões de contato do site (WhatsApp, Instagram e e-mail) usam esses dados.
 Cada botão de WhatsApp tem a própria mensagem pronta no atributo `data-wa-text` do HTML.
+Os links também já vêm prontos no HTML (com o número de exemplo) para funcionarem mesmo sem
+JavaScript: ao trocar o número, atualize `CONTACT` e substitua `5500000000000`, `seuperfil` e
+`contato@seudominio.com.br` no `index.html`.
 
 O plano da página (cenas, pico, chamadas para ação) está em `BRIEF.md`.
 

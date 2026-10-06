@@ -89,3 +89,20 @@ Todas abrem o WhatsApp com uma mensagem pronta diferente (atributo `data-wa-text
 | Quem somos | Quero falar com os fundadores | Link sublinhado |
 | Fechamento | Vamos colocar sua empresa em primeiro? | WhatsApp, Instagram e e-mail |
 | Sempre | Botão flutuante do WhatsApp | Flutuante |
+
+## Revisão com web-design-guidelines, frontend-design e writing-guidelines (06/10/2026)
+
+Aplicado a pedido do cliente:
+- A busca do Google (motion graphic) virou o visual da abertura; a antiga cena
+  "Seu site em primeiro" saiu para não repetir. O slogan segue no selo do
+  cartão e no fechamento. "Como funciona" agora leva à cena da conversa.
+- Botão "Pausar animação" nos dois loops (busca e WhatsApp), exigência de
+  acessibilidade para animações automáticas com mais de 5 segundos.
+- Celular marcado como imagem descrita para leitores de tela.
+- Links de WhatsApp, Instagram e e-mail já vêm prontos no HTML (funcionam sem JS).
+- Hovers e animações só com transform/opacity; saiu a pulsação que animava sombra.
+- Textos: sem afirmação estatística sem fonte; "para" no lugar de "pra";
+  "Fundador"/"Cofundador"; "carregam rápido mesmo em conexão de celular".
+- Sem destaque de cor em parte de título ("Pesquisa.").
+
+Pendente com o cliente: confirmar "cerca de 30 minutos" no fechamento; fotos dos fundadores; contatos reais.
