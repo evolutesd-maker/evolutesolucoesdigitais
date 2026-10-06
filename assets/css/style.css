@@ -300,11 +300,26 @@ button { font: inherit; }
 .celular__chat { flex: 1; padding: 18px 14px; display: flex; flex-direction: column; gap: 14px; }
 .celular__data { align-self: center; font-size: 12px; color: #8696a0; background: #182229; padding: 4px 12px; border-radius: 8px; }
 .balao {
-  align-self: flex-start; max-width: 88%; background: #202c33; color: #e9edef;
-  border-radius: 0 12px 12px 12px; padding: 10px 12px 6px; font-size: 15px; line-height: 1.45;
+  max-width: 86%; border-radius: 12px; padding: 8px 12px 6px; font-size: 14.5px; line-height: 1.45;
+  opacity: 0; transform: translateY(10px) scale(.97);
+  transition: opacity .3s, transform .4s cubic-bezier(.34, 1.4, .64, 1);
 }
-.balao p { min-height: 1.45em; }
-.balao small { display: block; text-align: right; font-size: 11px; color: #8696a0; margin-top: 2px; }
+.balao.is-visivel { opacity: 1; transform: none; }
+.balao--recebido { align-self: flex-start; background: #202c33; color: #e9edef; border-top-left-radius: 0; transform-origin: left bottom; }
+.balao--enviado { align-self: flex-end; background: #005c4b; color: #e9edef; border-top-right-radius: 0; transform-origin: right bottom; }
+.balao small { display: block; text-align: right; font-size: 11px; color: #8fa3ad; margin-top: 2px; }
+.lido { color: #53bdeb; letter-spacing: -.15em; margin-left: 2px; }
+.digitando {
+  display: inline-flex; gap: 4px; padding: 12px 14px; border-radius: 12px; background: #202c33;
+  opacity: 0; transition: opacity .25s;
+}
+.digitando.is-visivel { opacity: 1; }
+.digitando.is-empresa { align-self: flex-end; background: #005c4b; }
+.digitando:not(.is-empresa) { align-self: flex-start; }
+.digitando i { width: 7px; height: 7px; border-radius: 50%; background: #8fa3ad; animation: pontinhos 1.2s infinite ease-in-out; }
+.digitando i:nth-child(2) { animation-delay: .15s; }
+.digitando i:nth-child(3) { animation-delay: .3s; }
+@keyframes pontinhos { 0%, 60%, 100% { transform: translateY(0); opacity: .5; } 30% { transform: translateY(-4px); opacity: 1; } }
 .celular__campo { display: flex; align-items: center; gap: 10px; padding: 12px 14px 22px; }
 .celular__campo span { flex: 1; background: #1f2c34; color: #8696a0; font-size: 14px; padding: 10px 16px; border-radius: 999px; }
 .celular__campo i { width: 40px; height: 40px; border-radius: 50%; background: #00a884; flex-shrink: 0; }
@@ -419,7 +434,8 @@ button { font: inherit; }
 /* Movimento reduzido: o motor desliga as revelações; aqui paramos o resto */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .mini__botao, .google__cursor { animation: none; }
+  .mini__botao, .google__cursor, .digitando i { animation: none; }
+  .digitando { display: none; }
   .google__ponteiro { display: none; }
   .entregas__intro { position: static; }
 }
@@ -480,3 +496,4 @@ button { font: inherit; }
   .wa-float { right: 16px; bottom: 16px; width: 54px; height: 54px; }
   .to-top { right: 19px; bottom: 82px; }
 }
+.celular__chat [hidden] { display: none; }

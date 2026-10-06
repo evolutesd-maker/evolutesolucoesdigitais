@@ -235,6 +235,61 @@ function initSearchMotion() {
 }
 initSearchMotion();
 
+/* ---------- Motion graphic da conversa no WhatsApp (loop) ----------
+   Cliente digitando → chega "Olá, vim pelo site..." → a empresa digita →
+   chega a resposta → recomeça. Mesmas regras do cartão da busca. */
+function initChatMotion() {
+  const chat = document.getElementById("chat");
+  if (!chat || reduceMotion) return;
+  const msg = document.getElementById("chat-msg");
+  const reply = document.getElementById("chat-resposta");
+  const dots = document.getElementById("chat-digitando");
+  const status = document.getElementById("chat-status");
+
+  let visible = false;
+  let wake = null;
+  new IntersectionObserver(([entry]) => {
+    visible = entry.isIntersecting;
+    if (visible && wake) { wake(); wake = null; }
+  }, { threshold: 0.4 }).observe(chat);
+  document.addEventListener("visibilitychange", () => {
+    if (!document.hidden && visible && wake) { wake(); wake = null; }
+  });
+  const gate = () => (visible && !document.hidden) ? Promise.resolve() : new Promise((r) => { wake = r; });
+  const wait = async (ms) => { await gate(); await new Promise((r) => setTimeout(r, ms)); };
+
+  const show = (el) => { el.hidden = false; void el.offsetWidth; el.classList.add("is-visivel"); };
+  const hide = (el) => { el.classList.remove("is-visivel"); el.hidden = true; };
+
+  async function cycle() {
+    hide(msg); hide(reply);
+    dots.classList.remove("is-empresa");
+    await wait(500);
+
+    status.textContent = "digitando…";
+    show(dots);
+    await wait(1500);
+    hide(dots);
+    status.textContent = "online";
+    show(msg);
+    await wait(1400);
+
+    dots.classList.add("is-empresa");
+    show(dots);
+    await wait(1200);
+    hide(dots);
+    show(reply);
+    await wait(2600);
+
+    msg.classList.remove("is-visivel");
+    reply.classList.remove("is-visivel");
+    await wait(400);
+  }
+
+  gate().then(async () => { for (;;) await cycle(); });
+}
+initChatMotion();
+
 let ticking = false;
 window.addEventListener("scroll", () => {
   if (!ticking) {

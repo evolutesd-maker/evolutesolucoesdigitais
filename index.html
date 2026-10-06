@@ -170,15 +170,20 @@
           <div class="celular__tela">
             <div class="celular__topo">
               <span class="celular__avatar" aria-hidden="true">C</span>
-              <span><strong>Novo cliente</strong><small>online</small></span>
+              <span><strong>Novo cliente</strong><small id="chat-status">online</small></span>
               <svg class="icone celular__wa" aria-hidden="true"><use href="#i-whatsapp"/></svg>
             </div>
-            <div class="celular__chat">
+            <div class="celular__chat" id="chat">
               <span class="celular__data">Hoje</span>
-              <div class="balao">
-                <p data-fx="digitar" data-fx-duracao="2200">Olá, vim pelo site. Tenho interesse no seu produto.</p>
+              <div class="balao balao--recebido is-visivel" id="chat-msg">
+                <p>Olá, vim pelo site. Tenho interesse no seu produto.</p>
                 <small>agora</small>
               </div>
+              <div class="balao balao--enviado is-visivel" id="chat-resposta">
+                <p>Olá! Que bom que nos encontrou. Vamos conversar?</p>
+                <small>agora <span class="lido" aria-hidden="true">✓✓</span></small>
+              </div>
+              <div class="digitando" id="chat-digitando" aria-hidden="true"><i></i><i></i><i></i></div>
             </div>
             <div class="celular__campo" aria-hidden="true"><span>Mensagem</span><i></i></div>
           </div>
