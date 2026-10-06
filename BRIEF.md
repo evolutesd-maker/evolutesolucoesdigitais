@@ -63,7 +63,9 @@ planejados). Substituiu a versão ligada à rolagem, a pedido do cliente.
   primeiro", no indicador de digitação e em poucos detalhes.
 - **Tipografia:** Manrope (display, títulos grandes e firmes) + Inter (texto).
 - **Proibido aqui:** texto em degradê, brilhos neon, degradê azul/roxo,
-  números ou depoimentos inventados, telas presas.
+  números ou depoimentos inventados, telas presas, rótulos em caixa alta
+  acima dos títulos, metadados com "·" e setas "→" coladas em links
+  (pedido do cliente: "cara de IA").
 - **Fundo que viaja:** só entre branco e cinza-claro; as cenas azuis têm fundo
   próprio, para nenhum texto escuro aparecer sobre azul durante a transição
   (ajuste feito após a verificação).
