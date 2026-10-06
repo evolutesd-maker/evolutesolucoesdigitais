@@ -150,15 +150,15 @@ function initSearchMotion() {
     for (let i = 1; i <= text.length; i++) {
       queryEl.textContent = text.slice(0, i);
       // ritmo de digitação humano: pausa um pouco mais depois de espaços
-      await wait(text[i - 1] === " " ? 120 : 55 + (i % 3) * 18);
+      await wait(text[i - 1] === " " ? 70 : 32 + (i % 3) * 10);
     }
   }
   async function erase() {
     let text = queryEl.textContent;
     while (text.length) {
-      text = text.slice(0, -2);
+      text = text.slice(0, -3);
       queryEl.textContent = text;
-      await wait(22);
+      await wait(16);
     }
   }
 
@@ -170,25 +170,25 @@ function initSearchMotion() {
     ours.classList.remove("is-topo");
     list.appendChild(ours);
     areaEl.textContent = area;
-    await wait(500);
+    await wait(200);
     await type(q);
-    await wait(300);
+    await wait(150);
 
     card.classList.add("is-buscando");
-    await wait(750);
+    await wait(450);
     card.classList.remove("is-buscando");
     card.classList.remove("is-vazio");
     [...list.children].forEach((el, i) => el.animate(
       [{ opacity: 0, transform: "translateY(10px)" }, { opacity: el === ours ? 0.6 : 1, transform: "none" }],
-      { duration: 450, delay: i * 70, easing: EASE, fill: "both" }));
-    await wait(1100);
+      { duration: 350, delay: i * 50, easing: EASE, fill: "both" }));
+    await wait(550);
 
     // a subida: "Sua empresa" passa os outros resultados e chega ao topo
     ours.getAnimations().forEach((a) => a.cancel());
     await gate();
-    await reorder(() => list.prepend(ours), 1000);
+    await reorder(() => list.prepend(ours), 750);
     ours.classList.add("is-topo");
-    await wait(1000);
+    await wait(500);
 
     // o clique: ponteiro vai até o título e clica
     const cardBox = card.getBoundingClientRect();
@@ -199,7 +199,7 @@ function initSearchMotion() {
     const to = `translate(${x}px, ${y}px)`;
     await gate();
     await pointer.animate([{ transform: from, opacity: 0 }, { opacity: 1, offset: 0.3 }, { transform: to, opacity: 1 }],
-      { duration: 800, easing: EASE, fill: "forwards" }).finished;
+      { duration: 550, easing: EASE, fill: "forwards" }).finished;
     pointer.animate([{ transform: to }, { transform: `${to} scale(.82)` }, { transform: to }], { duration: 220, fill: "forwards" });
     const ripple = document.createElement("span");
     ripple.className = "clique";
@@ -207,17 +207,17 @@ function initSearchMotion() {
     ripple.style.top = `${y + 4}px`;
     card.appendChild(ripple);
     setTimeout(() => ripple.remove(), 700);
-    await wait(300);
+    await wait(200);
 
     // e vira conversa
     toast.classList.add("is-visivel");
-    await wait(2300);
+    await wait(1500);
 
     // saída
     toast.classList.remove("is-visivel");
     pointer.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 250, fill: "forwards" });
     card.classList.add("is-vazio");
-    await wait(350);
+    await wait(250);
     await erase();
   }
 

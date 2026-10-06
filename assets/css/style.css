@@ -253,7 +253,7 @@ button { font: inherit; }
   position: absolute; left: 0; right: 0; bottom: 0; height: 3px; background: #1a73e8;
   transform: scaleX(0); transform-origin: left; opacity: 0;
 }
-.google.is-buscando .google__carregando { opacity: 1; animation: carregar .7s var(--ease) forwards; }
+.google.is-buscando .google__carregando { opacity: 1; animation: carregar .45s var(--ease) forwards; }
 @keyframes carregar { to { transform: scaleX(1); } }
 .google__resultados { transition: opacity .35s; }
 .google.is-vazio .google__resultados { opacity: 0; }
