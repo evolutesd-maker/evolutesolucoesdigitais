@@ -7,7 +7,8 @@ Site estático (HTML, CSS e JavaScript puros, sem dependências nem build).
 ```
 index.html            Página única com todas as seções
 assets/css/style.css  Estilos (cores da marca em :root)
-assets/js/main.js     Interações + CONFIGURAÇÃO DE CONTATO
+assets/js/main.js     Interações da página, movimento-assinatura + CONFIGURAÇÃO DE CONTATO
+assets/fx/            Motor de rolagem "Sites Incríveis" (não editar; efeitos via atributos data-fx-*)
 assets/img/           Logos, favicons e imagem de compartilhamento (og-image)
 ```
 
@@ -21,6 +22,9 @@ Edite o objeto `CONTACT` no topo de `assets/js/main.js`:
 - `email`: e-mail de contato (os links já abrem com o assunto "Agendar reunião com a Evolute")
 
 Todos os botões de contato do site (WhatsApp, Instagram e e-mail) usam esses dados.
+Cada botão de WhatsApp tem a própria mensagem pronta no atributo `data-wa-text` do HTML.
+
+O plano da página (cenas, pico, chamadas para ação) está em `BRIEF.md`.
 
 ## Portfólio
 

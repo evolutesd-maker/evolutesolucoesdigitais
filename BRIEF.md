@@ -60,5 +60,26 @@ enquanto "Sua empresa" permanece em primeiro.
 - **Tipografia:** Manrope (display, títulos grandes e firmes) + Inter (texto).
 - **Proibido aqui:** texto em degradê, brilhos neon, degradê azul/roxo,
   números ou depoimentos inventados, telas presas.
+- **Fundo que viaja:** só entre branco e cinza-claro; as cenas azuis têm fundo
+  próprio, para nenhum texto escuro aparecer sobre azul durante a transição
+  (ajuste feito após a verificação).
 - **Cuidado de copy:** não prometer "1º lugar no Google" como garantia; o
   visual mostra a meta, o texto fala em estrutura feita para ser encontrada.
+
+## Chamadas para ação (cada uma com forma e mensagem próprias)
+
+Todas abrem o WhatsApp com uma mensagem pronta diferente (atributo `data-wa-text`).
+
+| Onde | Chamada | Forma |
+|---|---|---|
+| Menu | Agendar conversa | Pílula no menu |
+| Abertura | Quero minha empresa encontrada | Botão principal + link "Ver como funciona" |
+| Virada | Quero ser quem aparece | Link sublinhado em ciano |
+| Busca | Quero esse resultado | Botão |
+| Conversa | Quero receber mensagens assim | Botão branco com ícone do WhatsApp |
+| O que fazemos | Quero essa experiência | Cartão que se preenche de azul |
+| Portfólio | Quero um projeto como esse | Botão + "Visitar o site" |
+| Processo | Quero começar pelo diagnóstico | Faixa larga com seta |
+| Quem somos | Quero falar com os fundadores | Link sublinhado |
+| Fechamento | Vamos colocar sua empresa em primeiro? | WhatsApp, Instagram e e-mail |
+| Sempre | Botão flutuante do WhatsApp | Flutuante |
