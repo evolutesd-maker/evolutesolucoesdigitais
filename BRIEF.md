@@ -47,9 +47,13 @@ Cenas vizinhas nunca repetem a família de efeito.
 
 **Pico:** cena 3 — a maior área e a rolagem mais longa da página, em fluxo normal (sem fixar a tela).
 
-**Movimento-assinatura:** a consulta do Google se reescreve com a rolagem
-(arquitetos → advogados → clínica odontológica → contabilidade → "sua área"),
-enquanto "Sua empresa" permanece em primeiro.
+**Movimento-assinatura (revisado):** um motion graphic em loop no cartão do
+Google, que roda sozinho quando está visível: a busca é digitada → os
+resultados aparecem com "Sua empresa" lá embaixo → ela sobe até o primeiro
+lugar e ganha o selo "Seu site em primeiro" → um cursor clica → aviso "Nova
+mensagem no WhatsApp: Olá, vim pelo site." → a próxima profissão é digitada
+(arquitetos, advogados, clínica odontológica, contabilidade, móveis
+planejados). Substituiu a versão ligada à rolagem, a pedido do cliente.
 
 ## Design
 
