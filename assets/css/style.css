@@ -363,7 +363,6 @@ a, button { touch-action: manipulation; -webkit-tap-highlight-color: rgba(23, 19
 .slide.is-saindo { z-index: 2; transform: translate(-10%, 5%) scale(.9) rotate(-3deg); opacity: 0; }
 .slide:not(.is-ativo) .slide__link { pointer-events: none; }
 .slide.is-voltando { transition: opacity .5s; }
-.slide__flutua { will-change: transform; }
 .slide.is-ativo .slide__flutua { animation: flutuar 6s ease-in-out infinite; }
 @keyframes flutuar { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
 .slide__link { display: block; border-radius: 18px; position: relative; isolation: isolate; }
@@ -488,6 +487,11 @@ a, button { touch-action: manipulation; -webkit-tap-highlight-color: rgba(23, 19
 
 [tabindex="-1"]:focus { outline: none; }
 
+/* Nitidez: depois que a revelação termina, o elemento deixa de ser uma camada
+   "pré-desenhada". Sem isso o Chrome mantém a imagem rasterizada no tamanho
+   inicial da animação (ex.: 92%) e a estica, deixando texto e prints borrados. */
+[data-fx].fx-em-cena, .fx-reduzido [data-fx] { will-change: auto; }
+
 /* Movimento reduzido: o motor desliga as revelações; aqui paramos o resto */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -535,14 +539,30 @@ a, button { touch-action: manipulation; -webkit-tap-highlight-color: rgba(23, 19
   .header__brand img { height: 38px; }
   .abertura { padding-top: calc(var(--header-h) + 56px); }
   .abertura__acoes .btn { width: 100%; }
-  .google { padding: 18px 16px 20px; border-radius: 18px; }
-  .google__topo { flex-direction: column; align-items: stretch; gap: 12px; }
-  .google__logo { font-size: 24px; }
-  .google__campo { font-size: 15px; padding: 11px 16px; }
-  .google__abas { gap: 16px; }
-  .resultado--seu { padding: 16px 14px; }
-  .resultado__titulo { font-size: 18px; }
-  .selo { margin-left: 0; }
+  /* Busca compacta no celular: mesma história, menos da metade da altura */
+  .google { padding: 14px 14px 16px; border-radius: 18px; }
+  .google__topo { gap: 10px; margin-bottom: 12px; }
+  .google__logo { font-size: 19px; }
+  .google__campo { font-size: 14px; padding: 9px 14px; gap: 8px; box-shadow: 0 1px 4px rgba(32, 33, 36, .26); }
+  .google__campo .icone { width: 16px; height: 16px; }
+  .google__abas, .resultado--extra { display: none; }
+  .google__resultados { gap: 8px; }
+  .resultado--seu { padding: 11px 12px; border-radius: 12px; }
+  .resultado__fonte { gap: 8px; margin-bottom: 4px; }
+  .resultado__icone { width: 22px; height: 22px; }
+  .resultado__icone img { width: 14px; height: 14px; }
+  .resultado__fonte strong { font-size: 12.5px; }
+  .resultado__fonte small { font-size: 11px; }
+  .selo { font-size: 10.5px; padding: 4px 9px; }
+  .resultado__titulo { font-size: 15.5px; margin-bottom: 2px; }
+  .resultado__desc { font-size: 12.5px; line-height: 1.45; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; }
+  .resultado--outro { padding: 2px 12px; gap: 6px; }
+  .resultado--outro i:nth-child(3) { display: none; }
+  .google__aviso { right: 10px; bottom: 10px; max-width: calc(100% - 20px); padding: 8px 12px 8px 8px; gap: 9px; border-radius: 12px; }
+  .google__aviso-icone { width: 30px; height: 30px; border-radius: 9px; }
+  .google__aviso strong { font-size: 12.5px; }
+  .google__aviso small { font-size: 12px; }
+  .google__ponteiro { width: 20px; height: 20px; }
   .entregas__lista { grid-template-columns: minmax(0, 1fr); }
   .etapas { grid-template-columns: minmax(0, 1fr); }
   .faixa-cta { font-size: 24px; margin-top: 56px; }
