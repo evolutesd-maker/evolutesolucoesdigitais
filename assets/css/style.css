@@ -54,9 +54,8 @@ body {
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
-/* Nada passa da largura da tela. "clip" (e não "hidden") porque o Safari do
-   iPhone ignora overflow-x: hidden só no body, e "hidden" quebraria o título
-   fixo (sticky) de "O que fazemos". Elementos que entram deslizando de lado
+/* Nada passa da largura da tela. "clip" porque o Safari do iPhone ignora
+   overflow-x: hidden só no body. Elementos que entram deslizando de lado
    começam fora da tela e, sem isso, deixavam a página arrastável no celular. */
 html, body { overflow-x: clip; }
 .cena, .rodape { overflow-x: clip; }
@@ -133,21 +132,6 @@ a, button { touch-action: manipulation; -webkit-tap-highlight-color: rgba(23, 19
 .cartao-cta:hover::before { transform: scaleX(1); }
 .cartao-cta:hover::after { opacity: 1; }
 
-.faixa-cta {
-  display: flex; align-items: center; justify-content: space-between; gap: 24px;
-  margin-top: 56px; padding: 28px 0; border-top: 1px solid var(--linha); border-bottom: 1px solid var(--linha);
-  font-family: var(--fonte-titulo); font-weight: 700; font-size: var(--t-36); letter-spacing: -.03em; color: var(--azul);
-}
-.faixa-cta__seta {
-  width: 64px; height: 64px; border-radius: 50%; display: grid; place-items: center; flex-shrink: 0;
-  background: var(--azul); color: #fff; position: relative; isolation: isolate;
-  transition: transform .4s var(--ease);
-}
-.faixa-cta__seta::after { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: 50%; background: #25D366; opacity: 0; transition: opacity .3s; }
-.faixa-cta__seta .icone { width: 28px; height: 28px; }
-.faixa-cta:hover .faixa-cta__seta { transform: scale(1.06); }
-.faixa-cta:hover .faixa-cta__seta::after { opacity: 1; }
-
 /* ---------- Header ---------- */
 .header {
   position: fixed; inset: 0 0 auto 0; z-index: 100; height: var(--header-h);
@@ -184,7 +168,7 @@ a, button { touch-action: manipulation; -webkit-tap-highlight-color: rgba(23, 19
 .theme-dark h2, .theme-dark h3 { color: #fff; }
 
 /* 1 · Abertura: texto à esquerda, a busca do Google (motion graphic) à direita */
-.abertura { padding-top: calc(var(--header-h) + 72px); padding-bottom: 32px; }
+.abertura { padding-top: calc(var(--header-h) + 72px); padding-bottom: 72px; }
 .abertura__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 64px; align-items: center; }
 .abertura__visual { display: grid; justify-items: end; gap: 14px; }
 .abertura__visual .google { width: 100%; }
@@ -202,10 +186,11 @@ a, button { touch-action: manipulation; -webkit-tap-highlight-color: rgba(23, 19
 .aparelho__barra i { width: 10px; height: 10px; border-radius: 50%; background: #d3d9e3; }
 .aparelho__barra span { margin-left: 12px; flex: 1; font-size: 12px; color: var(--tinta-suave); background: #fff; border: 1px solid var(--linha); border-radius: 8px; padding: 3px 12px; }
 /* 2 · Virada: uma frase grande ocupando a largura */
-.virada { padding: 56px 0 96px; }
+/* Frase "Quem precisa do seu negócio…" fechando a seção de processo */
+.virada { margin-top: 64px; padding-top: 48px; border-top: 1px solid var(--linha); }
 .virada__frase { font-family: var(--fonte-titulo); font-size: var(--t-56); font-weight: 700; letter-spacing: -.035em; line-height: 1.1; max-width: 20ch; color: var(--tinta); }
 .virada__frase span { white-space: nowrap; }
-.virada__rodape { margin-top: 56px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 32px 64px; align-items: end; max-width: 940px; }
+.virada__rodape { margin-top: 32px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 32px 64px; align-items: end; max-width: 940px; }
 .virada__rodape p { font-size: var(--t-18); color: var(--tinta-suave); max-width: 52ch; }
 
 /* Busca no Google (motion graphic) */
@@ -349,7 +334,6 @@ a, button { touch-action: manipulation; -webkit-tap-highlight-color: rgba(23, 19
 
 /* 4 · O que fazemos: lista editorial em duas colunas */
 .entregas__grid { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: 96px; align-items: start; }
-.entregas__intro { position: sticky; top: calc(var(--header-h) + 48px); }
 .entregas__intro h2 { margin-bottom: 20px; color: var(--azul); }
 .entregas__intro > p { font-size: var(--t-18); color: var(--tinta-suave); max-width: 40ch; }
 .entregas__lista { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 48px; }
@@ -511,14 +495,12 @@ a, button { touch-action: manipulation; -webkit-tap-highlight-color: rgba(23, 19
   .slide, .slide__flutua, .vitrine__item { animation: none !important; transition: none !important; }
   .digitando { display: none; }
   .google__ponteiro { display: none; }
-  .entregas__intro { position: static; }
 }
 
 /* ---------- Responsivo ---------- */
 @media (max-width: 1080px) {
   .abertura__grid, .conversa__grid, .entregas__grid, .fundadores__grid, .vitrine { grid-template-columns: minmax(0, 1fr); gap: 56px; }
   .abertura__visual { max-width: 600px; justify-items: start; }
-  .entregas__intro { position: static; }
   .conversa__visual { order: 2; }
   .etapas { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 48px; }
   .etapas::before { display: none; }
@@ -538,7 +520,7 @@ a, button { touch-action: manipulation; -webkit-tap-highlight-color: rgba(23, 19
   .nav a { padding: 14px 0; border-bottom: 1px solid var(--linha); color: var(--tinta); }
   .nav__cta { margin-top: 18px; text-align: center; border: 0 !important; padding: 14px !important; }
   .cena { padding: 64px 0; }
-  .virada { padding: 40px 0 72px; }
+  .virada { margin-top: 48px; padding-top: 36px; }
   .conversa { padding: 72px 0 80px; }
   .virada__rodape { grid-template-columns: minmax(0, 1fr); }
   .fechamento { padding: 80px 0; }
@@ -551,10 +533,10 @@ a, button { touch-action: manipulation; -webkit-tap-highlight-color: rgba(23, 19
   .wrap { padding-inline: 20px; }
   .header__brand img { height: 38px; }
   .cena { padding: 56px 0; }
-  .virada { padding: 32px 0 64px; }
+  .virada { margin-top: 40px; padding-top: 28px; }
   .conversa { padding: 56px 0 64px; }
   .fechamento { padding: 72px 0; }
-  .abertura { padding-top: calc(var(--header-h) + 40px); padding-bottom: 24px; }
+  .abertura { padding-top: calc(var(--header-h) + 40px); padding-bottom: 48px; }
   .portfolio__cabeca, .processo__cabeca { margin-bottom: 32px; }
   .abertura__acoes .btn { width: 100%; }
   /* Busca compacta no celular: mesma história, menos da metade da altura */
@@ -583,8 +565,6 @@ a, button { touch-action: manipulation; -webkit-tap-highlight-color: rgba(23, 19
   .google__ponteiro { width: 20px; height: 20px; }
   .entregas__lista { grid-template-columns: minmax(0, 1fr); }
   .etapas { grid-template-columns: minmax(0, 1fr); }
-  .faixa-cta { font-size: 24px; margin-top: 40px; }
-  .faixa-cta__seta { width: 52px; height: 52px; }
   .pessoa { padding: 22px; column-gap: 18px; }
   .vitrine__palco { padding: 28px 30px 16px 0; }
   .slide { transform: translate(8%, -9%) scale(.92) rotate(2.5deg); }

@@ -125,3 +125,12 @@ Pendente com o cliente: confirmar "cerca de 30 minutos" no fechamento; fotos dos
 - Virada: "Quem precisa do seu negócio não procura na rua. Pesquisa." (na mesma linha)
 - Portfólio: "Sites de nossos clientes que já estão no ar."
 - Quem somos: "Fale diretamente com quem planeja, executa e lança o projeto."
+
+## Ajustes de estrutura (09/10/2026)
+
+- A frase "Quem precisa do seu negócio não procura na rua. Pesquisa." e o texto
+  "Se a sua empresa não aparece..." (com "Quero ser quem aparece") saíram da
+  cena 2 e passaram a fechar a seção "Como trabalhamos", no lugar da faixa
+  "Quero começar pelo diagnóstico" (removida).
+- Título de "O que fazemos" não fica mais preso durante a rolagem.
+- Rodapé: "A vitrine digital da sua empresa para quem procura."
