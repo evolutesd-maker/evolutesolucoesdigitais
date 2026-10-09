@@ -342,23 +342,64 @@ a, button { touch-action: manipulation; -webkit-tap-highlight-color: rgba(23, 19
 .entregas__lista h3 { font-size: var(--t-24); font-weight: 700; letter-spacing: -.02em; margin-bottom: 10px; color: var(--tinta); }
 .entregas__lista p { font-size: var(--t-15); color: var(--tinta-suave); }
 
-/* 5 · Portfólio: imagem grande à esquerda */
+/* 5 · Portfólio: carrossel flutuante. O projeto ativo flutua na frente e o
+   próximo espia por trás, inclinado; o texto ao lado troca junto. */
 .portfolio__cabeca { max-width: 640px; margin-bottom: 64px; }
 .portfolio__cabeca h2 { color: var(--azul); }
-.projeto { margin: 0; display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, .75fr); gap: 64px; align-items: center; }
-.projeto__imagem { display: block; border-radius: 18px; position: relative; isolation: isolate; }
-.projeto__imagem::after {
+.vitrine { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, .8fr); gap: 72px; align-items: center; }
+
+.vitrine__palco { display: grid; padding: 56px 72px 24px 0; touch-action: pan-y; }
+.slide {
+  grid-area: 1 / 1; position: relative; z-index: 1;
+  transform-origin: 100% 0;
+  transform: translate(9%, -10%) scale(.9) rotate(3deg); opacity: .6;
+  transition: transform .8s var(--ease), opacity .6s;
+  cursor: pointer;
+}
+.slide.is-ativo { z-index: 3; transform: none; opacity: 1; cursor: auto; }
+.slide.is-saindo { z-index: 2; transform: translate(-10%, 5%) scale(.9) rotate(-3deg); opacity: 0; }
+.slide:not(.is-ativo) .slide__link { pointer-events: none; }
+.slide.is-voltando { transition: opacity .5s; }
+.slide__flutua { will-change: transform; }
+.slide.is-ativo .slide__flutua { animation: flutuar 6s ease-in-out infinite; }
+@keyframes flutuar { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+.slide__link { display: block; border-radius: 18px; position: relative; isolation: isolate; }
+.slide__link::after {
   content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit;
   box-shadow: 0 60px 110px -40px rgba(4, 24, 49, .55); opacity: 0; transition: opacity .4s;
 }
-.projeto__imagem:hover::after { opacity: 1; }
+.slide__link:hover::after { opacity: 1; }
 .projeto__moldura { background: #fff; border-radius: 18px; overflow: hidden; border: 1px solid var(--linha); box-shadow: var(--sombra-grande); }
 .projeto__moldura img { width: 100%; height: auto; }
-.projeto__info { display: grid; gap: 20px; }
-.projeto__local { font-size: var(--t-15); color: var(--tinta-suave); margin-top: 8px; }
-.projeto__info h3 { font-size: var(--t-36); font-weight: 800; color: var(--tinta); }
-.projeto__info > p { font-size: var(--t-15); color: var(--tinta-suave); }
-.projeto__acoes { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 24px; margin-top: 8px; }
+
+.vitrine__texto { display: grid; gap: 40px; }
+.vitrine__itens { display: grid; }
+.vitrine__item {
+  grid-area: 1 / 1; display: grid; gap: 16px; align-content: start;
+  transition: opacity .45s, transform .6s var(--ease);
+}
+.vitrine__item[hidden] { display: grid; visibility: hidden; opacity: 0; transform: translateY(14px); }
+.vitrine__frase {
+  font-family: var(--fonte-titulo); font-size: var(--t-36); font-weight: 700; line-height: 1.15;
+  letter-spacing: -.03em; color: var(--azul); text-wrap: balance; margin-bottom: 8px;
+}
+.vitrine__item h3 { font-size: var(--t-24); font-weight: 700; letter-spacing: -.02em; color: var(--tinta); }
+.vitrine__local { font-size: var(--t-15); color: var(--tinta-suave); margin-top: -10px; }
+.vitrine__desc { font-size: var(--t-15); color: var(--tinta-suave); }
+.vitrine__acoes { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 24px; margin-top: 8px; }
+
+.vitrine__controles { display: flex; align-items: center; gap: 16px; }
+.vitrine__seta {
+  width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center; cursor: pointer;
+  background: #fff; color: var(--azul); border: 1px solid var(--linha);
+  position: relative; isolation: isolate; transition: transform .3s var(--ease);
+}
+.vitrine__seta::after { content: ""; position: absolute; inset: -1px; z-index: -1; border-radius: 50%; background: var(--azul); opacity: 0; transition: opacity .3s; }
+.vitrine__seta:hover { color: #fff; transform: scale(1.06); }
+.vitrine__seta:hover::after { opacity: 1; }
+.vitrine__seta .icone { width: 20px; height: 20px; }
+.vitrine__contador { font-size: var(--t-15); color: var(--tinta-suave); font-variant-numeric: tabular-nums; }
+.vitrine__contador b { color: var(--tinta); font-weight: 600; }
 
 /* 6 · Processo: linha do tempo horizontal */
 .processo__cabeca { max-width: 640px; margin-bottom: 72px; }
@@ -448,6 +489,7 @@ a, button { touch-action: manipulation; -webkit-tap-highlight-color: rgba(23, 19
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .google__cursor, .digitando i { animation: none; }
+  .slide, .slide__flutua, .vitrine__item { animation: none !important; transition: none !important; }
   .digitando { display: none; }
   .google__ponteiro { display: none; }
   .entregas__intro { position: static; }
@@ -455,7 +497,7 @@ a, button { touch-action: manipulation; -webkit-tap-highlight-color: rgba(23, 19
 
 /* ---------- Responsivo ---------- */
 @media (max-width: 1080px) {
-  .abertura__grid, .conversa__grid, .entregas__grid, .fundadores__grid, .projeto { grid-template-columns: minmax(0, 1fr); gap: 56px; }
+  .abertura__grid, .conversa__grid, .entregas__grid, .fundadores__grid, .vitrine { grid-template-columns: minmax(0, 1fr); gap: 56px; }
   .abertura__visual { max-width: 600px; justify-items: start; }
   .entregas__intro { position: static; }
   .conversa__visual { order: 2; }
@@ -503,6 +545,9 @@ a, button { touch-action: manipulation; -webkit-tap-highlight-color: rgba(23, 19
   .faixa-cta { font-size: 24px; margin-top: 56px; }
   .faixa-cta__seta { width: 52px; height: 52px; }
   .pessoa { padding: 22px; column-gap: 18px; }
+  .vitrine__palco { padding: 28px 30px 16px 0; }
+  .slide { transform: translate(8%, -9%) scale(.92) rotate(2.5deg); }
+  .vitrine__frase { font-size: 26px; }
   .pessoa__avatar { width: 60px; height: 60px; font-size: 20px; }
   .pessoa h3 { font-size: 19px; }
   .rodape__inner::after { left: 20px; right: 20px; }

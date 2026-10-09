@@ -210,31 +210,66 @@
     <section class="cena portfolio" id="portfolio" data-fx-fundo="#f4f6f9" data-fx-tinta="#0a1b33">
       <div class="wrap">
         <div class="portfolio__cabeca">
-          <h2 data-fx="subir">Já está no ar, trabalhando pelo cliente.</h2>
+          <h2 data-fx="subir">Já estão no ar, trabalhando pelos clientes.</h2>
         </div>
-        <figure class="projeto">
-          <a class="projeto__imagem" href="https://protestoijui.com.br" target="_blank" rel="noopener" aria-label="Visitar o site do Tabelionato de Protestos de Ijuí">
-            <div class="projeto__moldura" data-fx-paralaxe="0.08">
-              <div class="aparelho__barra"><i></i><i></i><i></i><span>protestoijui.com.br</span></div>
-              <img src="assets/img/portfolio/protestoijui.jpg" alt="Página inicial do site do Tabelionato de Protestos de Ijuí" width="1471" height="843" loading="lazy" decoding="async">
+        <!-- Carrossel flutuante: o projeto ativo flutua na frente, o próximo espia por trás -->
+        <div class="vitrine" id="vitrine" role="region" aria-roledescription="carrossel" aria-label="Projetos do portfólio" data-fx="subir">
+          <div class="vitrine__palco">
+            <div class="slide is-ativo" data-slide="0" role="group" aria-roledescription="slide" aria-label="1 de 2: Tabelionato de Protestos de Ijuí">
+              <div class="slide__flutua">
+                <a class="slide__link" href="https://protestoijui.com.br" target="_blank" rel="noopener" aria-label="Visitar o site: Tabelionato de Protestos de Ijuí">
+                  <div class="projeto__moldura">
+                    <div class="aparelho__barra"><i></i><i></i><i></i><span>protestoijui.com.br</span></div>
+                    <img src="assets/img/portfolio/protestoijui.jpg" alt="Página inicial do site do Tabelionato de Protestos de Ijuí" width="1471" height="843" loading="lazy" decoding="async">
+                  </div>
+                </a>
+              </div>
             </div>
-          </a>
-          <figcaption class="projeto__info">
-            <div data-fx="subir">
+            <div class="slide" data-slide="1" role="group" aria-roledescription="slide" aria-label="2 de 2: Cartório de Jaboticaba">
+              <div class="slide__flutua">
+                <a class="slide__link" href="https://cartoriojaboticaba.com.br" target="_blank" rel="noopener" aria-label="Visitar o site: Cartório de Jaboticaba">
+                  <div class="projeto__moldura">
+                    <div class="aparelho__barra"><i></i><i></i><i></i><span>cartoriojaboticaba.com.br</span></div>
+                    <img src="assets/img/portfolio/cartoriojaboticaba.jpg" alt="Página inicial do site do Cartório de Jaboticaba" width="1471" height="843" loading="lazy" decoding="async">
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="vitrine__texto">
+            <div class="vitrine__itens" aria-live="polite">
+            <div class="vitrine__item is-ativo" data-info="0">
+              <p class="vitrine__frase">Mais de um século de tradição traduzida em um site.</p>
               <h3>Tabelionato de Protestos de Ijuí</h3>
-              <p class="projeto__local">Cartório em Ijuí, Rio Grande do Sul</p>
+              <p class="vitrine__local">Cartório em Ijuí, Rio Grande do Sul</p>
+              <p class="vitrine__desc">Desde 1912 no atendimento à cidade. O site apresenta equipe, serviços, galeria e localização, e leva quem acessa direto ao atendimento pelo WhatsApp.</p>
+              <div class="vitrine__acoes">
+                <a href="https://wa.me/5500000000000?text=Ol%C3%A1%21%20Vi%20o%20site%20do%20Tabelionato%20de%20Iju%C3%AD%20no%20portf%C3%B3lio%20de%20voc%C3%AAs%20e%20quero%20um%20projeto%20como%20esse." class="btn btn--escuro" target="_blank" rel="noopener" data-whatsapp data-wa-text="Olá! Vi o site do Tabelionato de Ijuí no portfólio de vocês e quero um projeto como esse.">Quero um projeto como esse</a>
+                <a href="https://protestoijui.com.br" class="link-seta" target="_blank" rel="noopener">Visitar protestoijui.com.br</a>
+              </div>
             </div>
-            <p data-fx="subir" data-fx-atraso="100">
-              Mais de um século de história, desde 1912, traduzido em um site à altura.
-              Apresenta equipe, serviços, galeria e localização, e leva quem acessa
-              direto ao atendimento pelo WhatsApp.
-            </p>
-            <div class="projeto__acoes" data-fx="subir" data-fx-atraso="200">
-              <a href="https://wa.me/5500000000000?text=Ol%C3%A1%21%20Vi%20o%20site%20do%20Tabelionato%20de%20Iju%C3%AD%20no%20portf%C3%B3lio%20de%20voc%C3%AAs%20e%20quero%20um%20projeto%20como%20esse." class="btn btn--escuro" target="_blank" rel="noopener" data-whatsapp data-wa-text="Olá! Vi o site do Tabelionato de Ijuí no portfólio de vocês e quero um projeto como esse.">Quero um projeto como esse</a>
-              <a href="https://protestoijui.com.br" class="link-seta" target="_blank" rel="noopener">Visitar protestoijui.com.br</a>
+            <div class="vitrine__item" data-info="1" hidden>
+              <p class="vitrine__frase">Identificamos as necessidades do cliente e fazemos acontecer, simples assim.</p>
+              <h3>Cartório de Jaboticaba</h3>
+              <p class="vitrine__local">Notas e registros em Jaboticaba, Rio Grande do Sul</p>
+              <p class="vitrine__desc">A pessoa escreve o que precisa com as próprias palavras, encontra o serviço, confere os documentos antes de sair de casa e pede online ou chama o cartório no WhatsApp.</p>
+              <div class="vitrine__acoes">
+                <a href="https://wa.me/5500000000000?text=Ol%C3%A1%21%20Vi%20o%20site%20do%20Cart%C3%B3rio%20de%20Jaboticaba%20no%20portf%C3%B3lio%20de%20voc%C3%AAs%20e%20quero%20um%20projeto%20como%20esse." class="btn btn--escuro" target="_blank" rel="noopener" data-whatsapp data-wa-text="Olá! Vi o site do Cartório de Jaboticaba no portfólio de vocês e quero um projeto como esse.">Quero um projeto como esse</a>
+                <a href="https://cartoriojaboticaba.com.br" class="link-seta" target="_blank" rel="noopener">Visitar cartoriojaboticaba.com.br</a>
+              </div>
             </div>
-          </figcaption>
-        </figure>
+            </div>
+            <div class="vitrine__controles">
+              <button type="button" class="vitrine__seta" data-vitrine="anterior" aria-label="Projeto anterior">
+                <svg class="icone" aria-hidden="true"><use href="#i-seta-esquerda"/></svg>
+              </button>
+              <span class="vitrine__contador" aria-hidden="true"><b data-vitrine-atual>1</b> de 2</span>
+              <button type="button" class="vitrine__seta" data-vitrine="proximo" aria-label="Próximo projeto">
+                <svg class="icone" aria-hidden="true"><use href="#i-seta-direita"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -359,6 +394,8 @@
     <symbol id="i-busca" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></g></symbol>
     <symbol id="i-pausa" viewBox="0 0 24 24"><path fill="currentColor" d="M7 5h3.2v14H7zM13.8 5H17v14h-3.2z"/></symbol>
     <symbol id="i-play" viewBox="0 0 24 24"><path fill="currentColor" d="M8 5.2v13.6L19 12z"/></symbol>
+    <symbol id="i-seta-esquerda" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M19 12H5M11 6l-6 6 6 6"/></symbol>
+    <symbol id="i-seta-direita" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
     <symbol id="i-seta-cima" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M12 19V5M6 11l6-6 6 6"/></symbol>
   </svg>
 

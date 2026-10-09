@@ -327,6 +327,76 @@ function initChatMotion() {
 }
 initChatMotion();
 
+/* ---------- Portfólio: carrossel flutuante ----------
+   Setas, teclado (← →), deslizar no celular ou clicar no card que espia por
+   trás. A frase e a descrição ao lado trocam junto com o projeto. */
+function initVitrine() {
+  const vitrine = document.getElementById("vitrine");
+  if (!vitrine) return;
+  const slides = [...vitrine.querySelectorAll("[data-slide]")];
+  const itens = [...vitrine.querySelectorAll("[data-info]")];
+  const contador = vitrine.querySelector("[data-vitrine-atual]");
+  const total = slides.length;
+  let atual = 0;
+  const timers = new Map();
+
+  const marcar = () => slides.forEach((slide, i) => {
+    const ativo = i === atual;
+    slide.setAttribute("aria-hidden", String(!ativo));
+    slide.querySelector("a").tabIndex = ativo ? 0 : -1;
+  });
+
+  const ir = (novo) => {
+    novo = (novo + total) % total;
+    if (novo === atual) return;
+    const velho = slides[atual];
+    const chegando = slides[novo];
+    clearTimeout(timers.get(velho));
+    clearTimeout(timers.get(chegando));
+    chegando.classList.remove("is-saindo", "is-voltando");
+    velho.classList.remove("is-ativo", "is-voltando");
+    velho.classList.add("is-saindo");
+    chegando.classList.add("is-ativo");
+    // o card que saiu volta para trás do novo, aparecendo só com opacidade
+    timers.set(velho, setTimeout(() => {
+      velho.classList.add("is-voltando");
+      velho.classList.remove("is-saindo");
+    }, reduceMotion ? 0 : 650));
+    itens[atual].hidden = true;
+    itens[novo].hidden = false;
+    atual = novo;
+    contador.textContent = String(atual + 1);
+    marcar();
+  };
+
+  vitrine.querySelector('[data-vitrine="anterior"]').addEventListener("click", () => ir(atual - 1));
+  vitrine.querySelector('[data-vitrine="proximo"]').addEventListener("click", () => ir(atual + 1));
+  slides.forEach((slide, i) => slide.addEventListener("click", (e) => {
+    if (i === atual) return;
+    e.preventDefault();
+    ir(i);
+  }));
+  vitrine.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowLeft") { e.preventDefault(); ir(atual - 1); }
+    if (e.key === "ArrowRight") { e.preventDefault(); ir(atual + 1); }
+  });
+
+  // deslizar no celular
+  const palco = vitrine.querySelector(".vitrine__palco");
+  let inicioX = null;
+  palco.addEventListener("pointerdown", (e) => { if (e.pointerType !== "mouse") inicioX = e.clientX; });
+  palco.addEventListener("pointerup", (e) => {
+    if (inicioX === null) return;
+    const dx = e.clientX - inicioX;
+    inicioX = null;
+    if (Math.abs(dx) > 45) ir(atual + (dx < 0 ? 1 : -1));
+  });
+  palco.addEventListener("pointercancel", () => { inicioX = null; });
+
+  marcar();
+}
+initVitrine();
+
 let ticking = false;
 window.addEventListener("scroll", () => {
   if (!ticking) {

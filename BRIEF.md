@@ -106,3 +106,13 @@ Aplicado a pedido do cliente:
 - Sem destaque de cor em parte de título ("Pesquisa.").
 
 Pendente com o cliente: confirmar "cerca de 30 minutos" no fechamento; fotos dos fundadores; contatos reais.
+
+## Portfólio em carrossel flutuante (09/10/2026)
+
+- Novo projeto: Cartório de Jaboticaba (cartoriojaboticaba.com.br), print real do site.
+- O portfólio virou um carrossel: o projeto ativo flutua na frente e o próximo
+  espia por trás, inclinado (dá para clicar nele). Setas, teclado (← →) e
+  deslizar no celular. A frase, o nome e a descrição ao lado trocam junto.
+- Frases do cliente: Ijuí "Mais de um século de tradição traduzida em um site.";
+  Jaboticaba "Identificamos as necessidades do cliente e fazemos acontecer, simples assim."
+- Sem troca automática: quem passa é o visitante.
