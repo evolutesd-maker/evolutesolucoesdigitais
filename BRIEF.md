@@ -61,7 +61,7 @@ planejados). Substituiu a versão ligada à rolagem, a pedido do cliente.
   azul); tinta #0a1b33; tinta suave #5b6b80; azul da marca #093164 para cenas
   escuras e botões; **um acento só: ciano #17C3E6**, usado no selo "em
   primeiro", no indicador de digitação e em poucos detalhes.
-- **Tipografia:** Manrope (display, títulos grandes e firmes) + Inter (texto).
+- **Tipografia:** SF Pro, a fonte da Apple, via fonte do sistema em iPhone, iPad e Mac; Inter Tight (títulos) e Inter (texto) nos demais aparelhos.
 - **Proibido aqui:** texto em degradê, brilhos neon, degradê azul/roxo,
   números ou depoimentos inventados, telas presas, rótulos em caixa alta
   acima dos títulos, metadados com "·" e setas "→" coladas em links

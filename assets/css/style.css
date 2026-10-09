@@ -17,8 +17,11 @@
   --azul-fundo: #041831;
   --acento: #17C3E6;
 
-  --fonte-titulo: "Manrope", "Segoe UI", system-ui, sans-serif;
-  --fonte-texto: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  /* Em iPhone, iPad e Mac o sistema entrega a SF Pro (fonte da Apple), sem
+     questões de licença; nos demais aparelhos, Inter Tight e Inter, as
+     alternativas livres mais próximas. */
+  --fonte-titulo: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter Tight", "Inter", "Segoe UI", system-ui, sans-serif;
+  --fonte-texto: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", "Segoe UI", system-ui, sans-serif;
 
   /* escala tipográfica: 15 / 18 / 24 / 36 / 56 / 88 */
   --t-15: 15px;
@@ -53,7 +56,7 @@ body {
 }
 img, svg { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
-h1, h2, h3 { font-family: var(--fonte-titulo); margin: 0; line-height: 1.08; letter-spacing: -.03em; text-wrap: balance; }
+h1, h2, h3 { font-family: var(--fonte-titulo); margin: 0; line-height: 1.08; letter-spacing: -.025em; text-wrap: balance; }
 p { margin: 0; }
 ul, ol { margin: 0; padding: 0; list-style: none; }
 button { font: inherit; }
@@ -118,7 +121,7 @@ a, button { touch-action: manipulation; -webkit-tap-highlight-color: rgba(23, 19
   content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit;
   box-shadow: var(--sombra); opacity: 0; transition: opacity .35s;
 }
-.cartao-cta span { font-family: var(--fonte-titulo); font-weight: 800; font-size: var(--t-24); letter-spacing: -.02em; color: var(--azul); }
+.cartao-cta span { font-family: var(--fonte-titulo); font-weight: 700; font-size: var(--t-24); letter-spacing: -.02em; color: var(--azul); }
 .cartao-cta small { font-size: var(--t-15); color: var(--tinta-suave); }
 .cartao-cta:hover { transform: translateY(-3px); }
 .cartao-cta:hover::before { transform: scaleX(1); }
@@ -127,7 +130,7 @@ a, button { touch-action: manipulation; -webkit-tap-highlight-color: rgba(23, 19
 .faixa-cta {
   display: flex; align-items: center; justify-content: space-between; gap: 24px;
   margin-top: 72px; padding: 28px 0; border-top: 1px solid var(--linha); border-bottom: 1px solid var(--linha);
-  font-family: var(--fonte-titulo); font-weight: 800; font-size: var(--t-36); letter-spacing: -.03em; color: var(--azul);
+  font-family: var(--fonte-titulo); font-weight: 700; font-size: var(--t-36); letter-spacing: -.03em; color: var(--azul);
 }
 .faixa-cta__seta {
   width: 64px; height: 64px; border-radius: 50%; display: grid; place-items: center; flex-shrink: 0;
@@ -167,7 +170,7 @@ a, button { touch-action: manipulation; -webkit-tap-highlight-color: rgba(23, 19
 
 /* ---------- Cenas ---------- */
 .cena { position: relative; padding: 140px 0; }
-.cena h2 { font-size: var(--t-56); font-weight: 800; }
+.cena h2 { font-size: var(--t-56); font-weight: 700; }
 .theme-dark { color: #fff; }
 /* Cenas escuras têm fundo próprio; o fundo que viaja só alterna entre branco e cinza-claro,
    assim nenhum texto escuro aparece sobre azul durante a transição. */
@@ -179,7 +182,7 @@ a, button { touch-action: manipulation; -webkit-tap-highlight-color: rgba(23, 19
 .abertura__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 64px; align-items: center; }
 .abertura__visual { display: grid; justify-items: end; gap: 14px; }
 .abertura__visual .google { width: 100%; }
-.abertura__titulo { font-size: var(--t-88); font-weight: 800; letter-spacing: -.045em; line-height: 1; color: var(--azul); margin-bottom: 28px; }
+.abertura__titulo { font-size: var(--t-88); font-weight: 700; letter-spacing: -.035em; line-height: 1; color: var(--azul); margin-bottom: 28px; }
 .abertura__lead { font-size: var(--t-18); color: var(--tinta-suave); max-width: 52ch; margin-bottom: 40px; }
 .abertura__acoes { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 28px; }
 
@@ -231,7 +234,7 @@ a, button { touch-action: manipulation; -webkit-tap-highlight-color: rgba(23, 19
 .resultado__fonte strong { display: block; font-size: 14px; color: #202124; font-weight: 400; line-height: 1.2; }
 .resultado__fonte small { display: block; font-size: 12px; color: #4d5156; line-height: 1.3; }
 .selo {
-  margin-left: auto; font-style: normal; font-family: var(--fonte-titulo); font-weight: 800;
+  margin-left: auto; font-style: normal; font-family: var(--fonte-titulo); font-weight: 700;
   font-size: 12px; letter-spacing: .02em; color: var(--azul); background: var(--acento);
   padding: 5px 12px; border-radius: 999px; white-space: nowrap;
 }
@@ -409,7 +412,7 @@ a, button { touch-action: manipulation; -webkit-tap-highlight-color: rgba(23, 19
 .etapas li { position: relative; }
 .etapas__n {
   position: relative; display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%;
-  background: #fff; border: 1px solid var(--linha); font-family: var(--fonte-titulo); font-weight: 800;
+  background: #fff; border: 1px solid var(--linha); font-family: var(--fonte-titulo); font-weight: 700;
   color: var(--azul); margin-bottom: 24px; font-variant-numeric: tabular-nums;
 }
 .etapas h3 { font-size: var(--t-24); font-weight: 700; letter-spacing: -.02em; margin-bottom: 8px; color: var(--tinta); }
@@ -426,7 +429,7 @@ a, button { touch-action: manipulation; -webkit-tap-highlight-color: rgba(23, 19
 }
 .pessoa__avatar {
   grid-row: span 2; width: 72px; height: 72px; border-radius: 50%; display: grid; place-items: center;
-  font-family: var(--fonte-titulo); font-weight: 800; font-size: 24px; color: #fff; background: var(--azul);
+  font-family: var(--fonte-titulo); font-weight: 700; font-size: 24px; color: #fff; background: var(--azul);
 }
 .pessoa__avatar--alt { background: var(--azul-alto); }
 .pessoa h3 { font-size: 22px; font-weight: 700; letter-spacing: -.02em; color: var(--tinta); align-self: end; }
@@ -435,7 +438,7 @@ a, button { touch-action: manipulation; -webkit-tap-highlight-color: rgba(23, 19
 /* 8 · Fechamento: centralizado, uma chamada */
 .fechamento { padding: 160px 0; text-align: center; }
 .fechamento__inner { display: grid; justify-items: center; }
-.fechamento__titulo { font-size: var(--t-88); font-weight: 800; letter-spacing: -.045em; line-height: 1.02; max-width: 14ch; margin-bottom: 28px; }
+.fechamento__titulo { font-size: var(--t-88); font-weight: 700; letter-spacing: -.035em; line-height: 1.02; max-width: 14ch; margin-bottom: 28px; }
 .fechamento__lead { font-size: var(--t-18); color: #c3d3e8; max-width: 52ch; margin-bottom: 48px; }
 .canais { display: grid; grid-template-columns: repeat(3, minmax(0, 260px)); gap: 16px; justify-content: center; width: 100%; }
 .canal {
