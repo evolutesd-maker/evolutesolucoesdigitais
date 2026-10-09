@@ -134,3 +134,6 @@ Pendente com o cliente: confirmar "cerca de 30 minutos" no fechamento; fotos dos
   "Quero começar pelo diagnóstico" (removida).
 - Título de "O que fazemos" não fica mais preso durante a rolagem.
 - Rodapé: "A vitrine digital da sua empresa para quem procura."
+- (09/10/2026) A frase "Quem precisa do seu negócio... Pesquisa." trocou de lugar com
+  "Fale diretamente com quem...": agora é uma seção própria logo antes do fechamento,
+  sem o link "Quero ser quem aparece".
