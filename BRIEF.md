@@ -34,7 +34,7 @@
 | # | Cena | Vê | Sente | Passa a acreditar | Energia | Família de efeito |
 |---|---|---|---|---|---|---|
 | 1 | Abertura | Título enorme "Sua empresa, encontrada." montando palavra por palavra, muito branco, um navegador flutuando | Calma, precisão | "Isso é sério e bem-feito" | Média | Texto que se monta + profundidade |
-| 2 | A virada | Frase grande ancorada à esquerda: "Quem precisa de você não pergunta mais pra ninguém. Pesquisa." | Reconhecimento | "Se não me encontram, escolhem outro" | Calma | Revelação simples |
+| 2 | A virada | Frase grande ancorada à esquerda: "Quem precisa do seu negócio não procura na rua. Pesquisa." | Reconhecimento | "Se não me encontram, escolhem outro" | Calma | Revelação simples |
 | 3 | **Pico — busca e conversa** | Busca no Google que se reescreve com a rolagem; "Sua empresa" em primeiro com o selo; o fundo escurece para #093164; um celular recebe a mensagem digitada "Olá, vim pelo site. Tenho interesse no seu produto." | Desejo, "é isso que eu quero" | "O site traz o cliente até a minha conversa" | **Alta** | Assinatura (código próprio) + fundo que viaja + digitar |
 | 4 | O que fazemos | Lista editorial de entregas, em duas colunas, sem cartões repetidos | Clareza | "Eles cuidam de tudo" | Média | Revelação lateral |
 | 5 | Trabalho real | Print grande do site do Tabelionato com paralaxe suave | Confiança | "Já fazem isso de verdade" | Média | Profundidade |
