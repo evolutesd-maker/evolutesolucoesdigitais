@@ -54,6 +54,12 @@ body {
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
+/* Nada passa da largura da tela. "clip" (e não "hidden") porque o Safari do
+   iPhone ignora overflow-x: hidden só no body, e "hidden" quebraria o título
+   fixo (sticky) de "O que fazemos". Elementos que entram deslizando de lado
+   começam fora da tela e, sem isso, deixavam a página arrastável no celular. */
+html, body { overflow-x: clip; }
+.cena, .rodape { overflow-x: clip; }
 img, svg { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
 h1, h2, h3 { font-family: var(--fonte-titulo); margin: 0; line-height: 1.08; letter-spacing: -.025em; text-wrap: balance; }
