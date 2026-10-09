@@ -186,13 +186,6 @@ a, button { touch-action: manipulation; -webkit-tap-highlight-color: rgba(23, 19
 .aparelho__barra i { width: 10px; height: 10px; border-radius: 50%; background: #d3d9e3; }
 .aparelho__barra span { margin-left: 12px; flex: 1; font-size: 12px; color: var(--tinta-suave); background: #fff; border: 1px solid var(--linha); border-radius: 8px; padding: 3px 12px; }
 /* 2 · Virada: uma frase grande ocupando a largura */
-/* Frase "Quem precisa do seu negócio…": seção própria antes do fechamento */
-.virada-cena .virada { margin-top: 0; padding-top: 0; border-top: 0; }
-.virada { margin-top: 64px; padding-top: 48px; border-top: 1px solid var(--linha); }
-.virada__frase { font-family: var(--fonte-titulo); font-size: var(--t-56); font-weight: 700; letter-spacing: -.035em; line-height: 1.1; max-width: 20ch; color: var(--tinta); }
-.virada__frase span { white-space: nowrap; }
-.virada__rodape { margin-top: 32px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 32px 64px; align-items: end; max-width: 940px; }
-.virada__rodape p { font-size: var(--t-18); color: var(--tinta-suave); max-width: 52ch; }
 
 /* Busca no Google (motion graphic) */
 .google {
@@ -521,9 +514,7 @@ a, button { touch-action: manipulation; -webkit-tap-highlight-color: rgba(23, 19
   .nav a { padding: 14px 0; border-bottom: 1px solid var(--linha); color: var(--tinta); }
   .nav__cta { margin-top: 18px; text-align: center; border: 0 !important; padding: 14px !important; }
   .cena { padding: 64px 0; }
-  .virada { margin-top: 48px; padding-top: 36px; }
   .conversa { padding: 72px 0 80px; }
-  .virada__rodape { grid-template-columns: minmax(0, 1fr); }
   .fechamento { padding: 80px 0; }
   .rodape__inner { grid-template-columns: 1fr 1fr; }
   .rodape__marca { grid-column: 1 / -1; }
@@ -534,7 +525,6 @@ a, button { touch-action: manipulation; -webkit-tap-highlight-color: rgba(23, 19
   .wrap { padding-inline: 20px; }
   .header__brand img { height: 38px; }
   .cena { padding: 56px 0; }
-  .virada { margin-top: 40px; padding-top: 28px; }
   .conversa { padding: 56px 0 64px; }
   .fechamento { padding: 72px 0; }
   .abertura { padding-top: calc(var(--header-h) + 40px); padding-bottom: 48px; }

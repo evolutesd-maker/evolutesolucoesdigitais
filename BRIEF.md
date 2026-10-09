@@ -137,3 +137,5 @@ Pendente com o cliente: confirmar "cerca de 30 minutos" no fechamento; fotos dos
 - (09/10/2026) A frase "Quem precisa do seu negócio... Pesquisa." trocou de lugar com
   "Fale diretamente com quem...": agora é uma seção própria logo antes do fechamento,
   sem o link "Quero ser quem aparece".
+- (09/10/2026) "Quem precisa do seu negócio... Pesquisa." saiu do site. Guardada como
+  **fraseefeito1** em `reserva/fraseefeito1.md` (texto, HTML e CSS) para uso futuro.
