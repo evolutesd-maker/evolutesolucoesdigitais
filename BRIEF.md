@@ -25,7 +25,7 @@
 7. **Materiais.** Logo (versões clara e escura), azul da marca #093164, azul
    #1D5FA8 e ciano #17C3E6 do logo, print do site do Tabelionato de Protestos de
    Ijuí (único projeto até agora), fundadores João Gabriel Borges Fridhein
-   (Founder) e Miguel Bado (Co-founder). **Não há números nem depoimentos** —
+   e Miguel Bado, ambos fundadores. **Não há números nem depoimentos** —
    a página não inventa nenhum. Contatos reais ainda pendentes (WhatsApp,
    Instagram, e-mail).
 
@@ -102,7 +102,7 @@ Aplicado a pedido do cliente:
 - Links de WhatsApp, Instagram e e-mail já vêm prontos no HTML (funcionam sem JS).
 - Hovers e animações só com transform/opacity; saiu a pulsação que animava sombra.
 - Textos: sem afirmação estatística sem fonte; "para" no lugar de "pra";
-  "Fundador"/"Cofundador"; "carregam rápido mesmo em conexão de celular".
+  "Fundador" para os dois fundadores; "carregam rápido mesmo em conexão de celular".
 - Sem destaque de cor em parte de título ("Pesquisa.").
 
 Pendente com o cliente: confirmar "cerca de 30 minutos" no fechamento; fotos dos fundadores; contatos reais.
