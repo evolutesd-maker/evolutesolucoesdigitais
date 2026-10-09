@@ -116,3 +116,12 @@ Pendente com o cliente: confirmar "cerca de 30 minutos" no fechamento; fotos dos
 - Frases do cliente: Ijuí "Mais de um século de tradição traduzida em um site.";
   Jaboticaba "Identificamos as necessidades do cliente e fazemos acontecer, simples assim."
 - Sem troca automática: quem passa é o visitante.
+
+## Textos atualizados pelo cliente (09/10/2026)
+
+- Título da abertura: "Sua empresa em primeiro lugar."
+- Texto da abertura em três partes, terminando com a frase de efeito em destaque:
+  "Sua empresa em destaque. Seus clientes a um clique de distância."
+- Virada: "Quem precisa do seu negócio não procura na rua. Pesquisa." (na mesma linha)
+- Portfólio: "Sites de nossos clientes que já estão no ar."
+- Quem somos: "Fale diretamente com quem planeja, executa e lança o projeto."
