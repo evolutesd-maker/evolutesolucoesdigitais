@@ -105,7 +105,7 @@ Aplicado a pedido do cliente:
   "Fundador" para os dois fundadores; "carregam rápido mesmo em conexão de celular".
 - Sem destaque de cor em parte de título ("Pesquisa.").
 
-Pendente com o cliente: confirmar "cerca de 30 minutos" no fechamento; fotos dos fundadores; contatos reais.
+Pendente com o cliente: fotos dos fundadores.
 
 ## Portfólio em carrossel flutuante (09/10/2026)
 
@@ -143,3 +143,5 @@ Pendente com o cliente: confirmar "cerca de 30 minutos" no fechamento; fotos dos
   foi para o final, logo antes do fechamento. Ordem: abertura → o que fazemos → portfólio
   → processo → fundadores → conversa → fechamento.
 - (12/10/2026) Contatos reais: WhatsApp (55) 99132-9134 e evolute.sd@gmail.com. Instagram removido por enquanto (ícone mantido no código para voltar depois).
+- (12/10/2026) Fechamento sem tempo fixo: "Começamos com uma reunião inicial, sem compromisso, focada em entender o que a sua empresa precisa."
+- (12/10/2026) Domínio: evolutedigitais.com.br (canonical, og:url, og:image absoluto, dados estruturados, robots.txt e sitemap.xml).

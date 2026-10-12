@@ -44,3 +44,8 @@ python3 -m http.server 8000
 ## Publicação
 
 Funciona em qualquer hospedagem estática: GitHub Pages, Netlify, Vercel, Cloudflare Pages etc.
+
+## Domínio e SEO
+
+O site responde em `https://evolutedigitais.com.br/`. O endereço está em `index.html` (canonical, `og:url`,
+`og:image` e dados estruturados), em `robots.txt` e em `sitemap.xml`. Se o domínio mudar, atualize os três.
