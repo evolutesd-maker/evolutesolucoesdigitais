@@ -426,6 +426,8 @@ a, button { touch-action: manipulation; -webkit-tap-highlight-color: rgba(23, 19
 
 /* 8 · Fechamento: centralizado, uma chamada */
 .fechamento { padding: 112px 0; text-align: center; }
+/* conversa (azul) seguida do fechamento (azul): uma linha sutil separa os dois */
+.conversa + .fechamento { border-top: 1px solid rgba(255, 255, 255, .1); }
 .fechamento__inner { display: grid; justify-items: center; }
 .fechamento__titulo { font-size: var(--t-88); font-weight: 700; letter-spacing: -.035em; line-height: 1.02; max-width: 14ch; margin-bottom: 28px; }
 .fechamento__lead { font-size: var(--t-18); color: #c3d3e8; max-width: 52ch; margin-bottom: 48px; }

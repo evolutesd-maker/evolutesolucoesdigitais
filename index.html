@@ -123,51 +123,6 @@
       </div>
     </section>
 
-    <section class="cena conversa theme-dark" id="como-funciona">
-      <div class="wrap conversa__grid">
-        <div class="conversa__visual" data-fx="direita">
-          <div class="celular" role="img" aria-label="Conversa no WhatsApp: o cliente diz que veio pelo site e tem interesse no produto, e a empresa responde convidando para conversar">
-            <div class="celular__tela">
-              <div class="celular__topo">
-                <span class="celular__avatar" aria-hidden="true">C</span>
-                <span><strong>Novo cliente</strong><small id="chat-status">online</small></span>
-                <svg class="icone celular__wa" aria-hidden="true"><use href="#i-whatsapp"/></svg>
-              </div>
-              <div class="celular__chat" id="chat">
-                <span class="celular__data">Hoje</span>
-                <div class="balao balao--recebido is-visivel" id="chat-msg">
-                  <p>Olá, vim pelo site. Tenho interesse no seu produto.</p>
-                  <small>agora</small>
-                </div>
-                <div class="balao balao--enviado is-visivel" id="chat-resposta">
-                  <p>Olá! Que bom que nos encontrou. Vamos conversar?</p>
-                  <small>agora <span class="lido" aria-hidden="true">✓✓</span></small>
-                </div>
-                <div class="digitando" id="chat-digitando" aria-hidden="true"><i></i><i></i><i></i></div>
-              </div>
-              <div class="celular__campo" aria-hidden="true"><span>Mensagem</span><i></i></div>
-            </div>
-          </div>
-          <button type="button" class="pausar pausar--claro" data-pausar="chat" aria-pressed="false" hidden>
-            <svg class="icone" aria-hidden="true"><use href="#i-pausa"/></svg><span>Pausar animação</span>
-          </button>
-        </div>
-
-        <div class="conversa__texto">
-          <h2 class="conversa__titulo" data-fx="subir">O site não é o fim.<br>É o caminho até você.</h2>
-          <p data-fx="subir" data-fx-atraso="150">
-            Cada página é pensada para uma coisa: levar quem chegou até o seu
-            atendimento. A pessoa encontra, entende o que você faz, confia e chama.
-            O resto acontece na conversa, do jeito que você já sabe fazer.
-          </p>
-          <a href="https://wa.me/5500000000000?text=Ol%C3%A1%2C%20vim%20pelo%20site.%20Quero%20que%20meus%20clientes%20cheguem%20at%C3%A9%20mim%20assim." class="btn btn--claro" data-fx="subir" data-fx-atraso="250" target="_blank" rel="noopener" data-whatsapp data-wa-text="Olá, vim pelo site. Quero que meus clientes cheguem até mim assim.">
-            <svg class="icone" aria-hidden="true"><use href="#i-whatsapp"/></svg>
-            Quero receber mensagens assim
-          </a>
-        </div>
-      </div>
-    </section>
-
     <!-- ============ CENA 4 · O QUE FAZEMOS ============ -->
     <section class="cena entregas" id="entregas" data-fx-fundo="#ffffff" data-fx-tinta="#0a1b33">
       <div class="wrap entregas__grid">
@@ -296,6 +251,52 @@
             <h3>Miguel Bado</h3>
             <p class="pessoa__cargo">Fundador</p>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ A CONVERSA NO WHATSAPP (antes do fechamento) ============ -->
+    <section class="cena conversa theme-dark" id="como-funciona">
+      <div class="wrap conversa__grid">
+        <div class="conversa__visual" data-fx="direita">
+          <div class="celular" role="img" aria-label="Conversa no WhatsApp: o cliente diz que veio pelo site e tem interesse no produto, e a empresa responde convidando para conversar">
+            <div class="celular__tela">
+              <div class="celular__topo">
+                <span class="celular__avatar" aria-hidden="true">C</span>
+                <span><strong>Novo cliente</strong><small id="chat-status">online</small></span>
+                <svg class="icone celular__wa" aria-hidden="true"><use href="#i-whatsapp"/></svg>
+              </div>
+              <div class="celular__chat" id="chat">
+                <span class="celular__data">Hoje</span>
+                <div class="balao balao--recebido is-visivel" id="chat-msg">
+                  <p>Olá, vim pelo site. Tenho interesse no seu produto.</p>
+                  <small>agora</small>
+                </div>
+                <div class="balao balao--enviado is-visivel" id="chat-resposta">
+                  <p>Olá! Que bom que nos encontrou. Vamos conversar?</p>
+                  <small>agora <span class="lido" aria-hidden="true">✓✓</span></small>
+                </div>
+                <div class="digitando" id="chat-digitando" aria-hidden="true"><i></i><i></i><i></i></div>
+              </div>
+              <div class="celular__campo" aria-hidden="true"><span>Mensagem</span><i></i></div>
+            </div>
+          </div>
+          <button type="button" class="pausar pausar--claro" data-pausar="chat" aria-pressed="false" hidden>
+            <svg class="icone" aria-hidden="true"><use href="#i-pausa"/></svg><span>Pausar animação</span>
+          </button>
+        </div>
+
+        <div class="conversa__texto">
+          <h2 class="conversa__titulo" data-fx="subir">O site não é o fim.<br>É o caminho até você.</h2>
+          <p data-fx="subir" data-fx-atraso="150">
+            Cada página é pensada para uma coisa: levar quem chegou até o seu
+            atendimento. A pessoa encontra, entende o que você faz, confia e chama.
+            O resto acontece na conversa, do jeito que você já sabe fazer.
+          </p>
+          <a href="https://wa.me/5500000000000?text=Ol%C3%A1%2C%20vim%20pelo%20site.%20Quero%20que%20meus%20clientes%20cheguem%20at%C3%A9%20mim%20assim." class="btn btn--claro" data-fx="subir" data-fx-atraso="250" target="_blank" rel="noopener" data-whatsapp data-wa-text="Olá, vim pelo site. Quero que meus clientes cheguem até mim assim.">
+            <svg class="icone" aria-hidden="true"><use href="#i-whatsapp"/></svg>
+            Quero receber mensagens assim
+          </a>
         </div>
       </div>
     </section>

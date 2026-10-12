@@ -139,3 +139,6 @@ Pendente com o cliente: confirmar "cerca de 30 minutos" no fechamento; fotos dos
   sem o link "Quero ser quem aparece".
 - (09/10/2026) "Quem precisa do seu negócio... Pesquisa." saiu do site. Guardada como
   **fraseefeito1** em `reserva/fraseefeito1.md` (texto, HTML e CSS) para uso futuro.
+- (12/10/2026) A cena da conversa no WhatsApp ("O site não é o fim. É o caminho até você.")
+  foi para o final, logo antes do fechamento. Ordem: abertura → o que fazemos → portfólio
+  → processo → fundadores → conversa → fechamento.
