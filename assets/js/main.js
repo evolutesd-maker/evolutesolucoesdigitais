@@ -7,14 +7,12 @@
 /* ---------- CONFIGURAÇÃO DE CONTATO ----------
    Edite aqui os dados de contato. Todos os botões do site usam estes valores.
    - whatsapp: formato internacional, só dígitos (55 + DDD + número)
-   - instagram: o @ do perfil, sem o "@"
    Cada botão de WhatsApp pode ter a própria mensagem pronta no atributo
    data-wa-text do HTML; sem ele, usa defaultMessage. */
 const CONTACT = {
-  whatsapp: "5500000000000",
-  whatsappLabel: "(00) 00000-0000",
-  instagram: "seuperfil",
-  email: "contato@seudominio.com.br",
+  whatsapp: "5555991329134",
+  whatsappLabel: "(55) 99132-9134",
+  email: "evolute.sd@gmail.com",
   emailSubject: "Quero um site para a minha empresa",
   defaultMessage: "Olá! Conheci a Evolute pelo site e gostaria de conversar sobre um projeto."
 };
@@ -30,16 +28,10 @@ document.querySelectorAll("[data-whatsapp]").forEach((el) => {
   el.target = "_blank";
   el.rel = "noopener";
 });
-document.querySelectorAll("[data-instagram]").forEach((el) => {
-  el.href = `https://instagram.com/${CONTACT.instagram}`;
-  el.target = "_blank";
-  el.rel = "noopener";
-});
 document.querySelectorAll("[data-email]").forEach((el) => {
   el.href = `mailto:${CONTACT.email}?subject=${encodeURIComponent(CONTACT.emailSubject)}`;
 });
 document.querySelectorAll("[data-phone-label]").forEach((el) => (el.textContent = CONTACT.whatsappLabel));
-document.querySelectorAll("[data-instagram-label]").forEach((el) => (el.textContent = `@${CONTACT.instagram}`));
 // Quebra de linha só depois do "@" em telas estreitas
 document.querySelectorAll("[data-email-label]").forEach((el) => {
   const [user, domain] = CONTACT.email.split("@");

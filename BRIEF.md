@@ -26,8 +26,8 @@
    #1D5FA8 e ciano #17C3E6 do logo, print do site do Tabelionato de Protestos de
    Ijuí (único projeto até agora), fundadores João Gabriel Borges Fridhein
    e Miguel Bado, ambos fundadores. **Não há números nem depoimentos** —
-   a página não inventa nenhum. Contatos reais ainda pendentes (WhatsApp,
-   Instagram, e-mail).
+   a página não inventa nenhum. Contatos: WhatsApp (55) 99132-9134, e-mail evolute.sd@gmail.com;
+   Instagram fora por enquanto.
 
 ## Jornada em cenas
 
@@ -142,3 +142,4 @@ Pendente com o cliente: confirmar "cerca de 30 minutos" no fechamento; fotos dos
 - (12/10/2026) A cena da conversa no WhatsApp ("O site não é o fim. É o caminho até você.")
   foi para o final, logo antes do fechamento. Ordem: abertura → o que fazemos → portfólio
   → processo → fundadores → conversa → fechamento.
+- (12/10/2026) Contatos reais: WhatsApp (55) 99132-9134 e evolute.sd@gmail.com. Instagram removido por enquanto (ícone mantido no código para voltar depois).
