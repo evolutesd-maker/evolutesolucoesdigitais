@@ -145,3 +145,4 @@ Pendente com o cliente: fotos dos fundadores.
 - (12/10/2026) Contatos reais: WhatsApp (55) 99132-9134 e evolute.sd@gmail.com. Instagram removido por enquanto (ícone mantido no código para voltar depois).
 - (12/10/2026) Fechamento sem tempo fixo: "Começamos com uma reunião inicial, sem compromisso, focada em entender o que a sua empresa precisa."
 - (12/10/2026) Domínio: evolutedigitais.com.br (canonical, og:url, og:image absoluto, dados estruturados, robots.txt e sitemap.xml).
+- (13/10/2026) WhatsApp do Miguel Bado (55) 99692-2323 adicionado ao fechamento e ao rodapé, ao lado do WhatsApp principal (55) 99132-9134.

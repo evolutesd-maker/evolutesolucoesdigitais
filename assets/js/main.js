@@ -12,6 +12,9 @@
 const CONTACT = {
   whatsapp: "5555991329134",
   whatsappLabel: "(55) 99132-9134",
+  // WhatsApp do Miguel Bado: botões com data-whatsapp="miguel" usam este número
+  whatsappMiguel: "5555996922323",
+  whatsappMiguelLabel: "(55) 99692-2323",
   email: "evolute.sd@gmail.com",
   emailSubject: "Quero um site para a minha empresa",
   defaultMessage: "Olá! Conheci a Evolute pelo site e gostaria de conversar sobre um projeto."
@@ -19,19 +22,19 @@ const CONTACT = {
 
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-const waLink = (text) =>
-  `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(text || CONTACT.defaultMessage)}`;
+const waLink = (text, numero = CONTACT.whatsapp) =>
+  `https://wa.me/${numero}?text=${encodeURIComponent(text || CONTACT.defaultMessage)}`;
 
 /* Links de contato */
 document.querySelectorAll("[data-whatsapp]").forEach((el) => {
-  el.href = waLink(el.dataset.waText);
+  el.href = waLink(el.dataset.waText, el.dataset.whatsapp === "miguel" ? CONTACT.whatsappMiguel : CONTACT.whatsapp);
   el.target = "_blank";
   el.rel = "noopener";
 });
 document.querySelectorAll("[data-email]").forEach((el) => {
   el.href = `mailto:${CONTACT.email}?subject=${encodeURIComponent(CONTACT.emailSubject)}`;
 });
-document.querySelectorAll("[data-phone-label]").forEach((el) => (el.textContent = CONTACT.whatsappLabel));
+document.querySelectorAll("[data-phone-label]").forEach((el) => (el.textContent = el.dataset.phoneLabel === "miguel" ? CONTACT.whatsappMiguelLabel : CONTACT.whatsappLabel));
 // Quebra de linha só depois do "@" em telas estreitas
 document.querySelectorAll("[data-email-label]").forEach((el) => {
   const [user, domain] = CONTACT.email.split("@");

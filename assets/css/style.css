@@ -431,7 +431,8 @@ a, button { touch-action: manipulation; -webkit-tap-highlight-color: rgba(23, 19
 .fechamento__inner { display: grid; justify-items: center; }
 .fechamento__titulo { font-size: var(--t-88); font-weight: 700; letter-spacing: -.035em; line-height: 1.02; max-width: 14ch; margin-bottom: 28px; }
 .fechamento__lead { font-size: var(--t-18); color: #c3d3e8; max-width: 52ch; margin-bottom: 48px; }
-.canais { display: grid; grid-template-columns: repeat(2, minmax(0, 280px)); gap: 16px; justify-content: center; width: 100%; }
+.canais li { display: grid; }
+.canais { display: grid; grid-template-columns: repeat(3, minmax(0, 300px)); gap: 16px; justify-content: center; width: 100%; }
 .canal {
   display: flex; align-items: center; gap: 14px; text-align: left; padding: 20px 22px; border-radius: 18px;
   background: rgba(255, 255, 255, .06); border: 1px solid rgba(255, 255, 255, .14); color: #fff;

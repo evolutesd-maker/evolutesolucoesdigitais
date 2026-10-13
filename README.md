@@ -18,6 +18,7 @@ Edite o objeto `CONTACT` no topo de `assets/js/main.js`:
 
 - `whatsapp`: número no formato internacional, só dígitos (ex.: `5511912345678`)
 - `whatsappLabel`: número como deve aparecer no site
+- `whatsappMiguel` / `whatsappMiguelLabel`: WhatsApp do Miguel Bado (usado pelos botões com `data-whatsapp="miguel"`)
 - `email`: e-mail de contato (os links já abrem com o assunto "Agendar reunião com a Evolute")
 
 Todos os botões de contato do site (WhatsApp e e-mail) usam esses dados. O Instagram está fora por enquanto.
